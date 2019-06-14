@@ -14,10 +14,10 @@ Learn more about the `prisma init` flow [here](./getting-started.md).
 ## Contents
 
 - [Getting started](./getting-started.md)
+- [Prisma ecosystem](./prisma-ecosystem.md)
 - [Prisma project file](prisma-project-file.md)
 - [Data modeling](data-modeling.md)
 - [Prisma 2 CLI](./prisma-2-cli)
-- [Prisma ecosystem](./prisma-ecosystem.md)
 - [Introspection](./introspection.md)
 - Photon
   - [API](./photon/api.md)
