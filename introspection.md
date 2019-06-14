@@ -1,13 +1,13 @@
 # Introspection
 
-Prisma lets you introspect your database to derive a Prisma schema from the current database schema. Introspection is available via two CLI commands:
+Prisma lets you introspect your database to derive a data model definition from the current database schema. Introspection is available via two CLI commands:
 
 - `prisma init`: Interactive wizard helping to connect to a database and introspect it. Typically used when starting to use Prisma with an existing database.
-- `prisma introspect`: Assumes Prisma is already connected to your database and (re)introspects it for you. Typically used in [Photon-only](./photon/use-only-photon.md) projects where migrations are performed not via Lift, so the Prisma schema needs to be updated manually after each database schema change.
+- `prisma introspect`: Assumes Prisma is already connected to your database and (re)introspects it for you. Typically used in [Photon-only](./photon/use-only-photon.md) projects where migrations are performed not via Lift, so the data model needs to be updated manually after each database schema change.
 
 ## Conventions
 
-As database schemas are likely to look very different per project, Prisma employs a number of conventions for translating a database schema into a Prisma schema.
+As database schemas are likely to look very different per project, Prisma employs a number of conventions for translating a database schema into a data model definition.
 
 ### Models
 
@@ -31,4 +31,4 @@ As database schemas are likely to look very different per project, Prisma employ
 
 ### Keeping manual changes in the Prisma schemas
 
-In the TS implementation, the Prisma schema that's generated from an introspection is merged with the existing Prisma schema, and the naming in the existing Prisma schema always takes precedence. Matching fields (in case fields were renamed) are identified by _name_, _id property_ and _relation type_, in that order.
+In the TS implementation, the data model that's generated from an introspection is merged with the existing data model, and the naming in the existing data model always takes precedence. Matching fields (in case fields were renamed) are identified by _name_, _id property_ and _relation type_, in that order.

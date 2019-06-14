@@ -12,17 +12,17 @@ Starts the Prisma development mode.
 
 ### `prisma2 generate`
 
-Invokes the generators specified in the Prisma project definition.
+Invokes the generators specified in the Prisma project file.
 
 ### `prisma2 introspect`
 
-Introspects the database and generates a Prisma schema from it.
+Introspects the database and generates a data model from it.
 
 ## Lift
 
 ### `prisma2 lift save`
 
-Creates a new migration folder based on current datamodel changes. 
+Creates a new migration folder based on current data model changes. 
 
 ### `prisma2 lift up`
 
@@ -36,4 +36,4 @@ Undo migrations.
 
 ### `prisma2 convert`
 
-Convert the Prisma 1 service configuration to a Prisma 2 project definition.
+Convert the Prisma 1 service configuration to a Prisma 2 project file.

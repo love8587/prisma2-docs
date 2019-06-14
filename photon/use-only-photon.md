@@ -2,7 +2,7 @@
 
 You can use Photon as an ORM in your application without using Lift for database migrations. This is useful for _existing applications_ when there already is a working migration system or when you don't have the rights inside your organization to perform database migrations yourself.
 
-When using Photon without Lift, you obtain your datamodel by _introspecting_ your database schema and generating the Prisam datamodel from it. The generated datamodel then serves as foundation for Photon's generated CRUD API. Whenever a schema migration is performed on the database afterwards, you need to re-introspect your database (which updates your datamodel) and re-generate your Photon API.
+When using Photon without Lift, you obtain your data model definition by _introspecting_ your database schema and generating the Prisam data model from it. The generated data model then serves as foundation for Photon's generated CRUD API. Whenever a schema migration is performed on the database afterwards, you need to re-introspect your database (which updates your data model) and re-generate your Photon API.
 
 **This page is about using Photon with an existing database**. Learn more about getting started from scratch with Photon and Lift [here](./).
 
@@ -45,10 +45,10 @@ Then follow the interactive prompt:
 Once you're done with the interactive prompt, the CLI sets out for 3 major tasks:
 
 1. Introspecting your database schema
-1. Generating a Prisma schema based on the introspection
+1. Generating a data model based on the introspection
 1. Generating the Photon API in your selected language
 
-Plus, if you've selected a boilerplate to get started, it downloads the boilerplate code and configures it to connect to your database and match the generated datamodel.
+Plus, if you've selected a boilerplate to get started, it downloads the boilerplate code and configures it to connect to your database and match the generated data model.
 
 ### 3. Integrate Photon in your application
 
@@ -56,7 +56,7 @@ To start using Photon in your application, you can import it from `node_modules/
 
 ### 4. Customize your Photon API
 
-One benefit of having the Prisma schema as an intermediate representation of your database schema is that lets you to _decouple_ the database schema from your data access API. For example, you can map cryptic table names to friendlier model names to be used in your API.
+One benefit of having the data model as an intermediate representation of your database schema is that lets you to _decouple_ the database schema from your data access API. For example, you can map cryptic table names to friendlier model names to be used in your API.
 
 For example, when the following model was generated for you through the introspection:
 
@@ -75,7 +75,7 @@ await photon._customers.findMany({
 })
 ```
 
-You might prefer using camel casing rather than the snake case convention used in the database. You can therefore customize the mapping of a table/field name to a specific model/field name in the datamodel using the `map` attribute:
+You might prefer using camel casing rather than the snake case convention used in the database. You can therefore customize the mapping of a table/field name to a specific model/field name in the data model using the `map` attribute:
 
 ```groovy
 model Customer @map(name: "_customers") {
@@ -96,7 +96,7 @@ await photon.customers.findMany({
 
 Whenever the database schema changes throughout the lifetime of your application, you need to re-generate your Photon API to ensure it still matches the underlying database structures. The workflow for that typically involves two steps:
 
-1. Re-introspecting your database schema to update the datamodel
+1. Re-introspecting your database schema to update the data model
 1. Re-generate your Photon API
 
 In CLI commands, this looks as follows:

@@ -44,9 +44,11 @@ At this point, you have three options to use the Prisma tools with your successf
 - [Use only Photon](./photon/use-only-photon.md) (for database access (ORM))
 - [Use only Lift](./lift/use-only-lift.md) (for database migrations)
 
+> If you select **only Photon** or **only Lift**, it will still be possible to add the other tool to your project later.
+
 ### 4. Language selection (only Photon)
 
-If you previously selected "Photon and Lift" or "only Photon", you're now prompted for the language in which you want to access your database. Currently Photon is available in the following languages:
+If your previous selection included Photon, you're now prompted for the language in which you want to access your database. Currently Photon is available in the following languages:
 
 - **JavaScript**
 - **TypeScript**
@@ -60,7 +62,6 @@ Finally, you can decide how your initial project setup should look like:
 - **GraphQL boilerplate**: Sets up a GraphQL server example based on Photon
 - **REST boilerplate**: Sets up a REST API example based on Photon
 - **gRPC boilerplate**: Sets up a gRPC server example based on Photon
-
 
 ## Installing the Prisma CLI
 
