@@ -4,7 +4,7 @@ The Prisma project file (short: project file) is the main configuration file for
 
 - [**Data sources**](./data-sources.md): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
 - [**Data model definition**](#./data-modeling.md): Specifies your application models (the shape of the data per data source)
-- **Generators** (optional): Specifies what application code should be generated based on the data model (e.g. Photon JS)
+- **Generators** (optional): Specifies what data source clients should be generated based on the data model (e.g. Photon JS)
 
 ## Naming
 
@@ -50,7 +50,10 @@ datasource mgo2 {
 }
 ```
 
-
 ### Generators (optional)
+
+A generator configures what data source clients are generated and how they're generated. Language preferences and configuration will go in here:
+
+
 
 ### Data model definition

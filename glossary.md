@@ -86,7 +86,7 @@ The Prisma project file specifies the main parts of your Prisma project:
 
 - [**Data sources**](#data-source): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
 - [**Data model definition**](#data-model-definition): Specifies the shape of the data per data source
-- [**Generators**](#generator): Specifies what application code should be generated (e.g. Photon JS)
+- [**Generators**](#generator): Specifies what data source clients should be generated (e.g. Photon JS)
 
 ### Selection set
 
