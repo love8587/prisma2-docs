@@ -1,4 +1,4 @@
-# Prisma Ecosystem
+# Prisma ecosystem
 
 The Prisma ecosystem consists of the following tools:
 
