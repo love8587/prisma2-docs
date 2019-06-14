@@ -28,7 +28,7 @@ A data source can be specified using a `datasource` block in the project file.
 | --- | --- | --- | --- |
 | `provider` | **Yes** | Enum: `postgres`, `mysql`, `sqlite` | Describes which data source connector to use. |
 | `url` | **Yes** | String | Connection URL including authentication info. Each data source connector documents the URL syntax. Most connectors use the syntax provided by the database. |
-| `enabled` | No (Default: `false`) | Use environment variables to enable/disable a data source. |
+| `enabled` | No (Default: `false`) | Boolean | Use environment variables to enable/disable a data source. |
 
 ```groovy
 datasource pg {
