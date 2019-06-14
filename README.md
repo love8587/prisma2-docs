@@ -14,7 +14,8 @@ Learn more about the `prisma init` flow [here](./getting-started.md).
 ## Contents
 
 - [Getting started](./getting-started.md)
-- [Glossary](./glossary)
+- [Prisma project file](prisma-project-file.md)
+- [Data modeling](data-modeling.md)
 - [Prisma 2 CLI](./prisma-2-cli)
 - [Prisma ecosystem](./prisma-ecosystem.md)
 - [Introspection](./introspection.md)
@@ -25,3 +26,4 @@ Learn more about the `prisma init` flow [here](./getting-started.md).
   - [Steps](./lift/steps.md)
   - [Migration files](./lift/migration-files.md)
   - [Use only Lift](./lift/use-only-lift.md)
+- [Glossary](./glossary.md)
