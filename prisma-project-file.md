@@ -1,7 +1,54 @@
 # Prisma project file
 
-The Prisma project file is the main configuration file for your Prisma project. It contains the following parts:
+The Prisma project file (short: project file) is the main configuration file for your Prisma project. It contains the following parts:
 
 - [**Data sources**](./data-sources.md): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
 - [**Data model definition**](#./data-modeling.md): Specifies your application models (the shape of the data per data source)
-- [**Generators**](#generator): Specifies what application code should be generated based on the data model (e.g. Photon JS)
+- **Generators** (optional): Specifies what application code should be generated based on the data model (e.g. Photon JS)
+
+## Naming
+
+The default name for the project file is `project.prisma`. When your project file is named like this, the Prisma 2 CLI will detect it automatically in the directory where you invoke the CLI command.
+
+If the project file is named differently, you can provide an explicit option to the command to point the CLI to the location of the project file.
+
+## Syntax
+
+The project file is written in Prisma Definition Language (PDL). You can find a full reference for PDL in the [spec](https://github.com/prisma/rfcs/blob/0002-datamodel-2/text/0002-datamodel.md).
+
+## Building blocks
+
+### Data sources
+
+A data source can be specified using a `datasource` block in the project file.
+
+#### Fields
+
+| Name | Required | Description | Type |
+| --- | --- | --- | --- |
+| `provider` | **Yes** | Enum: `postgres`, `mysql`, `sqlite` | Describes which data source connector to use. |
+| `url` | **Yes** | String | Connection URL including authentication info. Each data source connector documents the URL syntax. Most connectors use the syntax provided by the database. |
+| `enabled` | No (Default: `false`) | Use environment variables to enable/disable a data source. |
+
+```groovy
+datasource pg {
+  provider = "postgresql"
+  url      = env.POSTGRES_URL
+  enabled  = true
+}
+
+datasource mgo {
+  provider = "mongodb"
+  url      = env.MONGO_URL
+}
+
+datasource mgo2 {
+  provider = "mongodb"
+  url      = env.MONGO2_URL
+}
+```
+
+
+### Generators (optional)
+
+### Data model definition
