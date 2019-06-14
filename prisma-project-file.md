@@ -24,7 +24,7 @@ A data source can be specified using a `datasource` block in the project file.
 
 #### Fields
 
-| Name | Required | Description | Type |
+| Name | Required | Type | Description |
 | --- | --- | --- | --- |
 | `provider` | **Yes** | Enum: `postgres`, `mysql`, `sqlite` | Describes which data source connector to use. |
 | `url` | **Yes** | String | Connection URL including authentication info. Each data source connector documents the URL syntax. Most connectors use the syntax provided by the database. |
