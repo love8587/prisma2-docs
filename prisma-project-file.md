@@ -60,7 +60,7 @@ A generator configures what data source clients are generated and how they're ge
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `provider` | **Yes** | String (file path) or Enum (`javascript`, `typescript`, `golang`)s | Describes which generator to use. This can point to a file that implements a generator or specify a built-in generator directly. |
+| `provider` | **Yes** | String (file path) or Enum (`javascript`, `typescript`, `golang`) | Describes which generator to use. This can point to a file that implements a generator or specify a built-in generator directly. |
 | `output` | **Yes** | String (file path) | Determines the location for the generated client. |
 
 A generator may bring its own fields to allow users to customize the generation behaviour.
