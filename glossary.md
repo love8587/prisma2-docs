@@ -127,11 +127,11 @@ Determines what fields of a model are returned in a Photon API call. By default,
 - enums
 - [embed](./data-modeling.md#embeds) fields
 
-The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
+The selection set can be manipulated by passing the [`select`](./photon/api.md#select-exclusively-via-select) or [`include`](./photon/api.md#include-additionally-via-include) option to a Photon API call.
 
 ### Type modifiers
 
-[Type modifiers]() let you turn the type of a field on a model. There are two type modifiers: `[]` for lists and `?` to make a field optional. 
+[Type modifiers](./data-modeling.md#type-modifiers) let you turn the type of a field on a model. There are two type modifiers: `[]` for lists and `?` to make a field optional. 
 
 ### Query engine
 
