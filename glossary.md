@@ -1,8 +1,32 @@
 # Glossary
 
+
 <!-- ### Composite model
 
 A composite model is a model that doesn't directly map to a structure (e.g. a _table_ or a _collection_) in the underlying data source. Instead, it's composed out of multiple parts from the underlying database. -->
+
+## Table of contents
+
+- [Data source]()
+- [Data source client]()
+- [Data source connector](#data-source-connector)
+- [Prisma Definition Language (PDL)](#prisma-definition-language-pdl)
+- [Embed](#embed)
+- [Generator](#generator)
+- [Lift](#lift)
+- [Migration](#migration)
+- [Migration engine](#migration-engine)
+- [Model(#model)
+- [Data model definition](#data-model-definition)
+- [Nested write](#nested-write)
+- [Photon](#photon)
+- [Prisma project file](#prisma-project-file)
+- [Scalar type](#scalar-type)
+- [Selection set](#selection-set)
+- [Type modifier](#type-modifier)
+- [Query engine](#query-engine)
+
+## Terminology
 
 ### Data source
 
@@ -129,7 +153,7 @@ Determines what fields of a model are returned in a Photon API call. By default,
 
 The selection set can be manipulated by passing the [`select`](./photon/api.md#select-exclusively-via-select) or [`include`](./photon/api.md#include-additionally-via-include) option to a Photon API call.
 
-### Type modifiers
+### Type modifier
 
 [Type modifiers](./data-modeling.md#type-modifiers) let you turn the type of a field on a model. There are two type modifiers: `[]` for lists and `?` to make a field optional. 
 
