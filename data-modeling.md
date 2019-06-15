@@ -321,15 +321,8 @@ Prisma supports the following core field attributes. Field attributes may be use
 - `@unique`: Defines the unique constraint.
 - `@map(\_ name: String)`: Defines the raw column name the field is mapped to.
 - `@default(\_ expr: Expr)`: Specifies a default value if null is provided.
-- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed
+- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](#the-relation-attribute).
 
-
-- fields: _(optional)_ list of field names to reference
-- name: _(optional)_ defines the name of the relationship
-- onDelete: _(optional)_ defines what we do when the referenced relation is
-  deleted
-  - **CASCADE**: also delete this entry
-  - **SET_NULL**: set the field to null. This is the default
 
 ##### @updatedAt
 
