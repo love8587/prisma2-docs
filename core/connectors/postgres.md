@@ -24,7 +24,15 @@ Find more information on the `datasource` fields [here]().
 
 ## Data model mapping
 
-- describes how the types from the data model map to native DB types
+The PostgreSQL connector maps the [scalar types](../../data-modeling.md#scalar-types) from the [data model](../../data-modeling.md#scalar-types) as follows to native column types:
+
+| Data model  | PostgreSQL  |
+| -------- | --------- | 
+| `String`   | `text`      | 
+| `Boolean`  | `boolean`   |
+| `Int`      | `integer`   |
+| `Float`    | `real`      |
+| `Datetime` | `timestamp` |
 
 ## Connection details
 

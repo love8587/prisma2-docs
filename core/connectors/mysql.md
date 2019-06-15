@@ -22,6 +22,18 @@ The fields passed to the `datasource` block are:
 
 Find more information on the `datasource` fields [here]().
 
+## Data model mapping
+
+The MySQL connector maps the [scalar types](../../data-modeling.md#scalar-types) from the [data model](../../data-modeling.md) as follows to native column types:
+
+| Data model  | MySQL  |
+| -------- | --------- | 
+| `String`   | `TEXT`      | 
+| `Boolean`  | `BOOLEAN`   |
+| `Int`      | `INT`   |
+| `Float`    | `FLOAT`      |
+| `Datetime` | `TIMESTAMP` |
+
 ## Connection details
 
 ### Connection string
