@@ -231,12 +231,24 @@ Prisma currently only supports string enum value types.
 
 ## Type definitions
 
+Type definitions use the `type` keyword. They can be used to consolidate various type specifications into a single type:
+
+```
+type Numeric Float @pg.numeric(precision: 5, scale: 2)
+                   @ms.decimal(precision: 5, scale: 2)
+
+model User {
+  id       Int      @id
+  weight   Numeric
+}
+```
+
 ## Attributes
 
 Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
-- [Field-level attributes]() are prefixed with `@`.
-- [Block-level attributes]() are prefixed with `@@`.
+- [Field attributes]() are prefixed with `@`.
+- [Block attributes]() are prefixed with `@@`.
 
 Depending on their signature, attributes may be called in the following cases:
 
@@ -289,7 +301,7 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 @attribute(item, key: item)
 ```
 
-### Field-level attributes
+### Field attributes
 
 Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines.
 
@@ -310,9 +322,9 @@ type MyType String @attribute("input")
          @attribute3
 ```
 
-### Block-level attributes
+### Block attributes
 
-Block-level attributes are marked by an `@@` prefix placed anywhere inside a block. You can have as many block attributes as you want and they may also span multiple lines:
+Block attributes are marked by an `@@` prefix placed anywhere inside a block. You can have as many block attributes as you want and they may also span multiple lines:
 
 ```
 model \_ { @@attribute0
@@ -360,7 +372,70 @@ Here is where you can find the documentation of connector attributes per data so
 
 ## Functions
 
+Prisma core provides a set of functions that _must_ be implemented by every
+connector with a _best-effort implementation_. Functions only work inside
+field and block attributes that accept them:
+
+- `uuid()`:Generates a fresh UUID
+- `cuid()`:Generates a fresh cuid
+- `between(min, max)`: Generates a random int in the specified range
+- `now()`:Current date and time
+
+Default values using a dynamic generator can be specified as follows:
+
+```groovy
+model User {
+  age        Int       @default(between([ 1, 5 ]))
+  height     Float     @default(between([ 1, 5 ]))
+  createdAt  Datetime  @default(now())
+}
+```
+
+Functions will always be provided at the Prisma level by the query engine.
+
+The data types that these functions return will be defined by the data source connectors. For example, `now()` in a PostgreSQL database will return a `timestamp with time zone`, while `now()` with a JSON connector would return an `ISOString`.
+
 ## Scalar types
+
+Prisma core provides the following scalar types:
+
+| Type     | Description           |
+| --- | --- |
+| `String`   | Variable length text  |
+| `Boolean`  | True or false value   |
+| `Int`      | Integer value         |
+| `Float`    | Floating point number |
+| `Datetime` | Timestamp             |
+
+The data source connector determines what native database type each of these types map to. Expand below to see the mappings per connector.
+
+<Details><Summary></Summary>
+<br />
+
+| Type     | PostgreSQL  | MySQL     | SQLite  | Mongo  | Raw JSON |
+| -------- | --------- | --------- | ------- | ------ | -------- |
+| `String`   | `text`      | `TEXT`      | `TEXT`    | `string` | `string`   |
+| `Boolean`  | `boolean`   | `BOOLEAN`   | _N/A_   | `bool`   | `boolean`  |
+| `Int`      | `integer`   | `INT`       | `INTEGER` | `int32`  | `number`   |
+| `Float`    | `real`      | `FLOAT`     | `REAL`    | `double` | `number`   |
+| `Datetime` | `timestamp` | `TIMESTAMP` | _N/A_   | `date`   | _N/A_    |
+
+
+**\_N/A:** here means no perfect equivalent, but we can probably get pretty
+close.
+
+#### Core Data Type to Generator
+
+| Type     | JS / TS | Go        |
+| -------- | ------- | --------- |
+| String   | string  | string    |
+| Boolean  | boolean | bool      |
+| Int      | number  | int       |
+| Float    | number  | float64   |
+| Datetime | Date    | time.Time |
+
+
+</Details>
 
 ## Relations
 
