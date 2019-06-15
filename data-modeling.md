@@ -73,7 +73,7 @@ enum Role {
 }
 ```
 
-### Models
+## Models
 
 Models represent the entities of your application domain. They are defined using `model` blocks in the data model.
 
@@ -83,7 +83,7 @@ On a technical level, a model maps to the underlying structures of the data sour
 - In MongoDB, a model maps to a _collection_
 - In REST, a model maps to a _resource_
 
-#### Naming models
+### Naming models
 
 Models are typically spelled in [PascalCase](http://wiki.c2.com/?PascalCase) and use the _singular_ form (e.g. `User` instead of `Users`).
 
@@ -93,7 +93,7 @@ Technically, a model can be named anything that adheres to this regular expressi
 [A-Za-z_][A-Za-z0-9_]*
 ```
 
-#### Model operations in the Photon API (CRUD)
+### Model operations in the Photon API (CRUD)
 
 Every _model_ in the data model definition will result into a number of CRUD operations in the generated [Photon API]():
 
@@ -119,7 +119,7 @@ const allUsers = await photon.users.findMany()
 
 Note that for Photon JS the name of the `users` property is auto-generated using the [`pluralize`](https://github.com/blakeembrey/pluralize) package. 
 
-### Fields
+## Fields
 
 The properties of a [model](#models) are called _fields_. A field consists of several parts:
 
@@ -130,7 +130,7 @@ The properties of a [model](#models) are called _fields_. A field consists of se
 
 You can see examples of fields on the sample models [above](#examples).
 
-#### Naming fields
+### Naming fields
 
 Field names are typically spelled in [camelCase](http://wiki.c2.com/?CamelCase) starting with a lowercase letter.
 
@@ -140,7 +140,7 @@ Technically, a model can be named anything that adheres to this regular expressi
 [A-Za-z_][A-Za-z0-9_]*
 ```
 
-#### Types
+### Types
 
 The type of a field determines its _structure_. A type falls in either of three categories:
 
@@ -148,7 +148,7 @@ The type of a field determines its _structure_. A type falls in either of three 
 - [Model](#models)
 - [Embed](#embeds)
 
-#### Type modifiers
+### Type modifiers
 
 The type of a field can be modified by appending either of two modifiers:
 
@@ -164,17 +164,17 @@ Lists can also be optional and will give the list a third state (which is `null`
 
 The default value for a required list is an empty list. The default value for an optional list is `null`.
 
-#### Field attributes
+### Field attributes
 
 Learn more about attributes [below](#attributes).
 
-### Embeds
+## Embeds
 
 Embeds are defined via the `embed` blocks in the datamodel and define structures that are _embedded_ in a [model](#models). For a relational database this is often called an _embedded type_, for document databases, an _embedded document_.
 
 Embeds are always included in the [default selection set](./photon/api.md#the-default-selection-set) of the [generated API Photon](./photon/api.md).
 
-#### Named embeds
+### Named embeds
 
 The example [above](#example) defines only one `embed` (called `Address`) which is used exactly once on the `User` model:
 
@@ -192,7 +192,7 @@ embed Address {
 
 Named embeds can be reused across multiple models.
 
-#### Inline embeds
+### Inline embeds
 
 In the above example, the named embed `Address` is only used once. In this case, it is possible to omit the name and define the `embed` block directly _inline_:
 
@@ -208,7 +208,7 @@ model User {
 
 Inline embeds can also be _nested_.
 
-### Enums
+## Enums
 
 An enum describes a _type_ that has a predefined set of values and is defined via an `enum` block:
 
@@ -230,9 +230,9 @@ enum Color {
 
 Prisma currently only supports string enum value types.
 
-### Type definitions
+## Type definitions
 
-### Attributes
+## Attributes
 
 Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
@@ -290,7 +290,7 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 @attribute(item, key: item)
 ```
 
-#### Field-level attributes
+### Field-level attributes
 
 Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines.
 
@@ -311,7 +311,7 @@ type MyType String @attribute("input")
          @attribute3
 ```
 
-##### Core
+#### Core
 
 _Core_ field attributes must be implemented by every [data source]() connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
 
@@ -326,11 +326,11 @@ Here is a list of all available core field attributes:
 - `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](#the-relation-attribute).
 - `@updatedAt`: Updates the time to `now()` whenever a record is updated.
 
-##### Connector
+#### Connector
 
 _Connector_ field attributes let you use the native features of your data source. With a PostgreSQL database, you can use it for example to X.
 
-#### Block-level attributes
+### Block-level attributes
 
 Block-level attributes are marked by an `@@` prefix placed anywhere inside a block. You can have as many block attributes as you want and they may also span multiple lines:
 
@@ -353,10 +353,10 @@ embed \_ { @@attribute0
 ```
 
 
-#### Block-level attributes
+### Block-level attributes
 
-### Functions
+## Functions
 
-### Scalar types
+## Scalar types
 
-### Relations
+## Relations
