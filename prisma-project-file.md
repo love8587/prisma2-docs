@@ -118,7 +118,7 @@ datasource mongo {
 }
 ```
 
-This is just a general convention, technically data sources can be named anything. Lowercase spelling is typically preferred. There might be special circumstances, such as [switching data sources based on environments](#switching-data-sources-based-on-environments), when it can make sense to apply a different naming scheme. It's also fine to abbreviate a data source name where it doesn't obscure the naming, e.g. `pg` for `postgres` works, but `msql` for `mysql` does not.
+This is just a general convention, technically data sources can be named anything. Lowercase spelling is typically preferred. There might be special circumstances, such as [switching data sources based on environments](#switching-data-sources-based-on-environments), when it can make sense to apply a different naming scheme.
 
 
 #### Examples
