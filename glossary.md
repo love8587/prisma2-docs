@@ -92,6 +92,7 @@ An auto-generated type-safe database client. Some people call it an ORM.
 Also sometimes referred to as:
 
 - Project file
+- Prisma file
 
 The Prisma project file specifies the main parts of your Prisma project:
 
@@ -99,9 +100,23 @@ The Prisma project file specifies the main parts of your Prisma project:
 - [**Data model definition**](#data-model-definition): Specifies the shape of the data per data source
 - [**Generators**](#generator): Specifies what data source clients should be generated (e.g. Photon JS)
 
+### Scalar type
+
+Also sometimes referred to as: 
+
+- Scalar
+
 ### Selection set
 
-Determins what fields of a model are returned in a Photon API call. By default, the selection set contains all (non-lazy) scalar fields of a model. The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
+Also sometimes referred to as: 
+
+- Payload
+
+Determines what fields of a model are returned in a Photon API call. By default, the [selection set] contains all (non-lazy) scalar fields of a model. The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
+
+### Type modifiers
+
+[Type modifiers]() let you turn the type of a field on a model. There are two type modifiers: `[]` for lists and `?` to make a field optional. 
 
 ### Query engine
 

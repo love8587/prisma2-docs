@@ -63,7 +63,7 @@ async function main() {
 }
 ```
 
-Note that the name of the `users` property can be configured in the data model definition. 
+Note that the name of the `users` property is auto-generated using the [`pluralize`](https://github.com/blakeembrey/pluralize) package. 
 
 ### Field selection
 
