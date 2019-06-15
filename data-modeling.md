@@ -164,19 +164,20 @@ Depending on their signature, attributes may be called in the following cases:
 
 **Case 1. No arguments**
 
-- Signature: `@attribute`
-- Description: Parenthesis **must** be omitted.
-- Examples:
+- _Signature_: `@attribute`
+- _Description_: Parenthesis **must** be omitted.
+- _Examples_:
   - `@id`
   - `@unique`
   - `@updatedAt`
 
-##### Case 2. One positional argument: `@attribute(_ p0: T0, p1: T1, ...)`
+**Case 2. One positional argument**
 
-There may be up to one positional argument that doesn't need to be named. Examples:
-
-- `@field("my_column")`
-- `@default(10)`
+- _Signature_: `@attribute(_ p0: T0, p1: T1, ...)`
+- _Description_: There may be up to one positional argument that doesn't need to be named.
+- _Examples_:
+  - `@field("my_column")`
+  - `@default(10)`
 
 For arrays with a single parameter, you **may** omit the surrounding brackets:
 
@@ -185,17 +186,15 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 @attribute(email)
 ```
 
-##### Case 3. Many named arguments:
+**Case 3. Many named arguments**
 
-There may be any number of named
-arguments. If there is a positional argument, then it **may** appear anywhere in
-the function signature, but if it's present and required, the caller **must**
-place it before any named arguments. Named arguments may appear in any order:
-
-- `@@pg.index([ email, first_name ], name: "my_index", partial: true)`
-- `@@pg.index([ first_name, last_name ], unique: true, name: "my_index")`
-- `@@check(a > b, name: "a_b_constraint")`
-- `@pg.numeric(precision: 5, scale: 2)`
+- _Signature_: `@attribute(_ p0: T0, p1: T1, ...)`
+- _Description_: There may be any number of named arguments. If there is a positional argument, then it **may** appear anywhere in the function signature, but if it's present and required, the caller **must** place it before any named arguments. Named arguments may appear in any order.
+- _Examples_:
+  - `@@pg.index([ email, first_name ], name: "my_index", partial: true)`
+  - `@@pg.index([ first_name, last_name ], unique: true, name: "my_index")`
+  - `@@check(a > b, name: "a_b_constraint")`
+  - `@pg.numeric(precision: 5, scale: 2)`
 
 You **must not** have multiple arguments with the same name:
 
