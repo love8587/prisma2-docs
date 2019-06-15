@@ -310,25 +310,6 @@ type MyType String @attribute("input")
          @attribute3
 ```
 
-#### Core
-
-_Core_ field attributes must be implemented by every [data source]() connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
-
-They may be used in `model` and `embed` blocks as well as on `type` definitions
-
-Here is a list of all available core field attributes:
-
-- `@id`: Defines the primary key.
-- `@unique`: Defines a unique constraint.
-- `@map(\_ name: String)`: Defines the raw column name the field is mapped to.
-- `@default(\_ expr: Expr)`: Specifies a default value.
-- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](#the-relation-attribute).
-- `@updatedAt`: Updates the time to `now()` whenever a record is updated.
-
-#### Connector
-
-_Connector_ field attributes let you use the native features of your data source. With a PostgreSQL database, you can use it for example to X.
-
 ### Block-level attributes
 
 Block-level attributes are marked by an `@@` prefix placed anywhere inside a block. You can have as many block attributes as you want and they may also span multiple lines:
@@ -351,11 +332,36 @@ embed \_ { @@attribute0
 @@attribute1 @@attribute2("input") }
 ```
 
+### Core attributes
 
-### Block-level attributes
+_Core_ attributes must be implemented by every [data source]() connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
+
+They may be used in `model` and `embed` blocks as well as on `type` definitions
+
+Here is a list of all available core field attributes:
+
+- `@id`: Defines the primary key.
+- `@unique`: Defines a unique constraint.
+- `@map(\_ name: String)`: Defines the raw column name the field is mapped to.
+- `@default(\_ expr: Expr)`: Specifies a default value.
+- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](#the-relation-attribute).
+- `@updatedAt`: Updates the time to `now()` whenever a record is updated.
+
+### Connector attributes
+
+_Connector_ attributes let you use the native features of your data source. With a PostgreSQL database, you can use it for example to X. 
+
+Here is where you can find the documentation of connector attributes per data source connector:
+
+- [MySQL]()
+- [PostgreSQL]()
+- [SQLite]()
+- [MongoDB]()
 
 ## Functions
 
 ## Scalar types
 
 ## Relations
+
+Learn more about relations [here](./relations.md).
