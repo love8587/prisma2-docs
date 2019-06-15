@@ -1,8 +1,8 @@
 # Glossary
 
-### Composite model
+<!-- ### Composite model
 
-A composite model is a model that doesn't directly map to a structure (e.g. a _table_ or a _collection_) in the underlying data source. Instead, it's composed out of multiple parts from the underlying database.
+A composite model is a model that doesn't directly map to a structure (e.g. a _table_ or a _collection_) in the underlying data source. Instead, it's composed out of multiple parts from the underlying database. -->
 
 ### Data source
 
@@ -10,7 +10,7 @@ A data source can be anything that Prisma can connect to via a [connector](#data
 
 ### Data source client
 
-A data source client 
+A data source client provides a type-safe data access API for a data source. Depending on the data source, the API can be read-only, write-onlly or allow both. Note that the most common data source connectors allows for both.
 
 ### Data source connector
 
@@ -22,10 +22,10 @@ A data source connector connects Prisma to a [data source](#data-source).
 
 Prisma currently supports the following built-in connectors:
 
-- `sqlite`: A connector for SQLite databases
-- `postgres`: A connector for PostgreSQL databases
-- `mysql`: A connector for MySQL databases
-- `mongo`: A connector for MongoDB databases (_coming soon_)
+- [`sqlite`](./core/connectors/sqlite.md): A connector for SQLite databases
+- [`postgres`](./core/connectors/postgres.md): A connector for PostgreSQL databases
+- [`mysql`](./core/connectors/mysql.md): A connector for MySQL databases
+- [`mongo`](./core/connectors/mongo.md): A connector for MongoDB databases (_coming soon_)
 
 ### Prisma Definition Language (PDL)
 
@@ -40,6 +40,8 @@ Also sometimes referred to as:
 - Embedded type
 - Embedded model
 - Embedded structure
+
+[Embeds](./data-modeling.md#embeds) are defined via the `embed` blocks in the data model and define structures that are _embedded_ in a [model](#model). For a relational database this is often called an _embedded type_, for document databases, an _embedded document_.  
 
 ### Generator
 
@@ -66,7 +68,7 @@ The migration engine generates the database operations needed to apply a migrati
 
 ### Model
 
-Models represent the entities of your application domain. Non-[composite](#composite-model) models also directly map to structures in the underlying data source, e.g. a _table_ for a relational database or a _collection_ for a document database. The generated Photon API will expose CRUD operations for each model in your [data model](#data-model-definition).
+[Models](./data-modeling.md#models) represent the _entities of your application domain_. They directly map to structures in the underlying data source, e.g. a _table_ for a relational database or a _collection_ for a document database. The [generated Photon API](./photon/api.md) will expose CRUD operations for each model in your [data model](#data-model-definition).
 
 ### Data model definition
 
@@ -77,15 +79,22 @@ Also sometimes referred to as:
 - Application schema
 - Model schema
 
-Contains the definitions of all your models. The data model definition is part of the [project file](#prisma-project-file).
+Contains the definitions of all your models. The [data model definition](./data-modeling.md#data-model-definition) is part of the [project file](#prisma-project-file).
 
 ### Nested write
 
-Photon lets you perform nested creates and nested updates for related models. A nested write is always performed as an atomic transaction. 
+Photon lets you perform nested creates, nested updates and nested connects for related models. A [nested write](./relations.md#nested-writes) is always performed as an atomic transaction. Learn more about the generated Photon API [here](./photon/api.md).
 
 ### Photon
 
-An auto-generated type-safe database client. Some people call it an ORM. 
+An auto-generated and type-safe database client. Photon is generated using a [generator](#generator) that's specified in your [project file](#prisma-project-file). The [generated Photon API](./photon/api.md) exposes powerful CRUD operations for you to programmatically access your database.
+
+Prisma currently supports the following languages for Photon:
+
+- JavaScript (Node.js)
+- TypeScript
+
+A generator for Go is coming soon.
 
 ### Prisma project file
 
@@ -94,7 +103,7 @@ Also sometimes referred to as:
 - Project file
 - Prisma file
 
-The Prisma project file specifies the main parts of your Prisma project:
+The [Prisma project file](./prisma-project-file.md) specifies the main parts of your Prisma project:
 
 - [**Data sources**](#data-source): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
 - [**Data model definition**](#data-model-definition): Specifies the shape of the data per data source
@@ -112,11 +121,11 @@ Also sometimes referred to as:
 
 - Payload
 
-Determines what fields of a model are returned in a Photon API call. By default, the [selection set]() contains the fields of the following types:
+Determines what fields of a model are returned in a Photon API call. By default, the [selection set](./photon/api.md#selection-sets) contains the fields of the following types:
 
-- non-lazy [scalar fields]()
+- non-lazy [scalar fields](./data-modeling.md#scalar-types)
 - enums
-- [embed]() fields
+- [embed](./data-modeling.md#embeds) fields
 
 The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
 
