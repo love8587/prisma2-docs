@@ -292,8 +292,75 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 @attribute(item, key: item)
 ```
 
-
 #### Field-level attributes
+
+Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines.
+
+```
+// A field with one attribute
+model _ {
+  myField String @attribute
+}
+
+// A field with two attributes
+embed _ {
+  myField String @attribute @attribute2
+}
+
+// A type definition with three attributes
+type MyType String @attribute("input")
+         @attribute2("input", key: "value", key2: "value2")
+         @attribute3
+```
+
+##### Core
+
+Prisma supports the following core field attributes. Field attributes may be used in `model` and `embed` blocks as well as `type` definitions. These attributes **must** be implemented by every connector with a **best-effort implementation**:
+
+- `@id`: Defines the primary key.
+- `@unique`: Defines the unique constraint.
+- `@map(\_ name: String)`: Defines the raw column name the field is mapped to.
+- `@default(\_ expr: Expr)`: Specifies a default value if null is provided.
+- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed
+
+
+- fields: _(optional)_ list of field names to reference
+- name: _(optional)_ defines the name of the relationship
+- onDelete: _(optional)_ defines what we do when the referenced relation is
+  deleted
+  - **CASCADE**: also delete this entry
+  - **SET_NULL**: set the field to null. This is the default
+
+##### @updatedAt
+
+Updates the time to `now()` whenever the model is updated
+
+#### Block Attributes
+
+Field attributes are marked by an `@@` prefix placed anywhere inside the block.
+You can have as many block attributes as you want and they may also span
+multiple lines:
+
+```
+
+model \_ { @@attribute0
+
+---
+
+@@attribute1("input") @attribute2("input", key: "value", key2: "value2")
+
+---
+
+@@attribute3 }
+
+embed \_ { @@attribute0
+
+---
+
+@@attribute1 @@attribute2("input") }
+
+```
+
 
 #### Block-level attributes
 

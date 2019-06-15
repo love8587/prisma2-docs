@@ -295,3 +295,7 @@ const deletedUserCount = await photon.users.deleteMany({
   where: { name: "Alice" },
 })
 ```
+
+## Raw database access
+
+Coming soon.
