@@ -23,88 +23,6 @@ If the project file is named differently, you can provide an explicit option to 
 
 The project file is written in Prisma Definition Language (PDL). You can find a full reference for PDL in the [spec](https://github.com/prisma/rfcs/blob/0002-datamodel-2/text/0002-datamodel.md).
 
-## Using environment variables
-
-You can use environment variables to provide configuration options when a CLI command is invoked. This is helpful e.g. to:
-
-- Keep secrets out of the project file
-- Improve portability of the project file
-
-### The `env` function
-
-Environment variables can be provided using the `env` function:
-
-```
-datasource pg {
-  provider = "postgres"
-  url      = env("POSTGRES_URL")
-}
-```
-
-When a [`generator`]() block is specified in the project file, the generated code will reference the same environment variables. For example for Photon JS, the generated code could include:
-
-```
-childProcess.spawn('./query_engine', {
-  env: {
-    url: process.env.POSTGRES_URL,
-  },
-})
-```
-
-### Switching data sources based on environments
-
-Sometimes it's helpful to target different environments based in the same project file, for example:
-
-```groovy
-datasource db {
-  enabled   = env("SQLITE_URL")
-  provider  = "sqlite"
-  url       = env("SQLITE_URL")
-}
-
-datasource db {
-  enabled   = env("POSTGRES_URL")
-  provider  = "postgresql"
-  url       = env("POSTGRES_URL")
-}
-
-model User {
-  id         Int    @id @db.int
-  first_name String @unique
-}
-```
-
-Depending on which environment variable is set (in this case `SQLITE_URL` or `POSTGRES_URL`), the respective data source will be used.
-
-## Writing comments
-
-There are two types of comments that are supported in the project file:
-
-- `// comment`: This comment is for the reader's clarity and is not present in the AST of the project file.
-- `/// comment`: These comments will show up in the AST of the project file, either as descriptions to AST nodes or as free-floating comments. Tools can then use these comments to provide additional information to the user.
-
-Here are some different examples:
-
-```groovy
-/// This comment will get attached to the `User` node
-model User {
-  /// This comment will get attached to the `id` node
-  id      Int
-  // This comment is just for you
-  weight  Float /// This comment gets attached to the `weight` node
-}
-
-// This comment is just for you. This comment will not
-// show up in the AST.
-
-/// This is a free-floating comment that will show up
-/// in the AST as a `Comment` node, but is not attached
-/// to any other node. We can use these for documentation
-/// in the same way that godoc.org works.
-
-model Customer {}
-```
-
 ## Building blocks
 
 ### Data sources
@@ -213,3 +131,190 @@ There are several blocks you can use for _data modeling_ in your project file:
 There also are _attributes_ and _functions_ you can use to enhance the functionality of your data model definition.
 
 Learn about the data modeling components in detail [here](./data-modeling.md)
+
+## Using environment variables
+
+You can use environment variables to provide configuration options when a CLI command is invoked. This is helpful e.g. to:
+
+- Keep secrets out of the project file
+- Improve portability of the project file
+
+### The `env` function
+
+Environment variables can be provided using the `env` function:
+
+```
+datasource pg {
+  provider = "postgres"
+  url      = env("POSTGRES_URL")
+}
+```
+
+When a [`generator`]() block is specified in the project file, the generated code will reference the same environment variables. For example for Photon JS, the generated code could include:
+
+```
+childProcess.spawn('./query_engine', {
+  env: {
+    url: process.env.POSTGRES_URL,
+  },
+})
+```
+
+### Switching data sources based on environments
+
+Sometimes it's helpful to target different environments based in the same project file, for example:
+
+```groovy
+datasource db {
+  enabled   = env("SQLITE_URL")
+  provider  = "sqlite"
+  url       = env("SQLITE_URL")
+}
+
+datasource db {
+  enabled   = env("POSTGRES_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_URL")
+}
+
+model User {
+  id         Int    @id @db.int
+  first_name String @unique
+}
+```
+
+Depending on which environment variable is set (in this case `SQLITE_URL` or `POSTGRES_URL`), the respective data source will be used.
+
+## Writing comments
+
+There are two types of comments that are supported in the project file:
+
+- `// comment`: This comment is for the reader's clarity and is not present in the AST of the project file.
+- `/// comment`: These comments will show up in the AST of the project file, either as descriptions to AST nodes or as free-floating comments. Tools can then use these comments to provide additional information to the user.
+
+Here are some different examples:
+
+```groovy
+/// This comment will get attached to the `User` node
+model User {
+  /// This comment will get attached to the `id` node
+  id      Int
+  // This comment is just for you
+  weight  Float /// This comment gets attached to the `weight` node
+}
+
+// This comment is just for you. This comment will not
+// show up in the AST.
+
+/// This is a free-floating comment that will show up
+/// in the AST as a `Comment` node, but is not attached
+/// to any other node. We can use these for documentation
+/// in the same way that godoc.org works.
+
+model Customer {}
+```
+
+## Auto-formatting
+
+
+## Auto Formatting
+
+Following the lead of [gofmt](https://golang.org/cmd/gofmt/) and [prettier](https://github.com/prettier/prettier), PDL syntax ships with a formatter for `.prisma` files.
+
+Like `gofmt` and unlike `prettier`, there are no options for configurability here. **There is exactly one way to format a prisma file**.
+
+This strictness serves two benefits:
+
+1. No bikeshedding. There's a saying in the Go community that, "Gofmt's style is nobody's favorite, but gofmt is everybody's favorite."
+2. No pull requests with different spacing schemes.
+
+### Formatting Rules
+
+#### Configuration blocks are align by their `=` sign
+
+```groovy
+block _ {
+  key      = "value"
+  key2     = 1
+  long_key = true
+}
+```
+
+Formatting may be reset up by a newline:
+
+```groovy
+block _ {
+  key   = "value"
+  key2  = 1
+  key10 = true
+
+  long_key   = true
+  long_key_2 = true
+}
+```
+
+Multiline objects follow their own nested formatting rules:
+
+```groovy
+block _ {
+  key   = "value"
+  key2  = 1
+  key10 = {
+    a = "a"
+    b = "b"
+  }
+  key10 = [
+    1,
+    2
+  ]
+}
+```
+
+#### Field definitions are aligned into columns separated by 2 or more spaces
+
+```groovy
+block _ {
+  id          String       @id
+  first_name  LongNumeric  @default
+}
+```
+
+Multiline field attributes are properly aligned with the rest of the field
+attributes:
+
+```groovy
+block _ {
+  id          String       @id
+                           @default
+  first_name  LongNumeric  @default
+}
+```
+
+Formatting may be reset by a newline:
+
+```groovy
+block _ {
+  id  String  @id
+              @default
+
+  first_name  LongNumeric  @default
+}
+```
+
+Inline embeds add their own nested formatting rules:
+
+```groovy
+model User {
+  id        String
+  name      String
+  customer  embed {
+    id         String
+    full_name  String
+    cards   embed {
+      type  Card
+    }[]
+  }?
+  age   Int
+  email String
+}
+```
