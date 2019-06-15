@@ -1,6 +1,6 @@
 # Photon JS generator
 
-The Photon JS generator can be used in a [Prisma project file](../../prisma-project-file.md) to generate the Photon database client for Node.js and TypeScript. 
+The Photon JS generator can be used in a [Prisma project file](../../prisma-project-file.md) to generate the Photon database client for Node.js and TypeScript. The API of the generated client is documented [here](../../photon/api.md).
 
 ## Target
 
@@ -26,7 +26,6 @@ prisma2 generate
 ```
 
 It will then store the generated Photon API in the specified `./generated/photon` directory. Learn more about the [generated Photon API](../../photon/api.md).
-
 
 <!-- ## Fields
 

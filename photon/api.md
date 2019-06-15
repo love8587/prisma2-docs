@@ -2,6 +2,13 @@
 
 Photon is a type-safe database client auto-generated based on your data model definition (which is a representation of your database schema). This page explains the generated API operations you have available when using Photon.
 
+- [Overview](#overview)
+- [CRUD](#crud)
+- [Field selection](#field-selection)
+- [Relations](#relations)
+- [Raw databases access](#raw-database-access)
+- [API Reference](#api-reference)
+
 ## Overview
 
 Using Photon typically follows this high-level workflow:
@@ -33,7 +40,7 @@ enum Role {
 }
 ```
 
-### CRUD
+## CRUD
 
 Your generated Photon API will expose the following CRUD operations for the `User` and `Post` models:
 
@@ -65,11 +72,11 @@ async function main() {
 
 Note that the name of the `users` property is auto-generated using the [`pluralize`](https://github.com/blakeembrey/pluralize) package. 
 
-### Field selection
+## Field selection
 
 This section explains how to predict and control which fields of a model are returned in a Photon API call.
 
-#### Selection sets
+### Selection sets
 
 To understand which fields are being returned by a certain API call, you need to be aware of its **selection set**. 
 
@@ -77,7 +84,7 @@ The selection set defines the **set of fields on a model instance that is return
 
 For example, in the `findOne` API call from above, the selection set includes the `id`, `name` and `role` fields of the model `User`. In that example, the selection set has not been manipulated and the API call therefore returns the _default selection set_ (read below).
 
-#### The default selection set
+### The default selection set
 
 If the selection set is not manipulated (via `select` or `include`), a Photon API call returns the **default selection set** for a model. It includes all [_scalar_]() fields (including [enums]()) and [_embed_]() fields of the model.
 
@@ -86,14 +93,14 @@ Considering the sample datamodel from above:
 - The default selection set for the `User` model includes `id`, `name`, `role`. It does **not** include `posts` because that's a _relation_ and not a scalar field.
 - The default selection set for the `Post` model includes `id`, `title`. It does **not** include `author` because that's a _relation_ and not a scalar field.
 
-#### Manipulating the selection set
+### Manipulating the selection set
 
 There are two ways how the _default selection set_ can be manipulated to specify which fields should be returned by a Photon API call:
 
 - **Select exclusively** (via `select`): When using `select`, the selection set only contains the fields that are explicitly provided as arguments to `select`.
 - **Include additionally** (via `include`): When using `include`, the default selection set gets extended with additional fields that are provided as arguments to `include`.
 
-##### Select exclusively via `select`
+#### Select exclusively via `select`
 
 In this example, we're using `select` to exclusively select the `name` field of the returned `User` object:
 
@@ -105,7 +112,7 @@ const result = await photon.users.findOne({
 // result = { name: "Alice" }
 ```
 
-##### Include additionally via `include`
+#### Include additionally via `include`
 
 Sometimes you want to directly include a relation when retrieving data from a database. To eagerly load and include the relations of a model in an API call right away, you can use `include`: 
 
@@ -124,7 +131,15 @@ const result = await photon.users.findOne({
 // }
 ```
 
-#### Lazy loading
+### Lazy loading
+
+Coming soon.
+
+## Relations
+
+Learn more about relations in the generated Photon API [here](../relations.md#relations-in-the-generated-Photon-API).
+
+## Raw database access
 
 Coming soon.
 
@@ -296,6 +311,3 @@ const deletedUserCount = await photon.users.deleteMany({
 })
 ```
 
-## Raw database access
-
-Coming soon.
