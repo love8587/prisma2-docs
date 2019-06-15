@@ -162,7 +162,7 @@ Attributes modify the behavior of a [field]() or block ([model](), [embed](), ..
 
 Depending on their signature, attributes may be called in the following cases:
 
-##### Case 1. No arguments
+**Case 1. No arguments**
 
 - **Signature**: `@attribute`
 - **Description**: Parenthesis **must** be omitted.
