@@ -22,6 +22,10 @@ The fields passed to the `datasource` block are:
 
 Find more information on the `datasource` fields [here]().
 
+## Data model mapping
+
+- describes how the types from the data model map to native DB types
+
 ## Connection details
 
 ### Connection string

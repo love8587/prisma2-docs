@@ -105,7 +105,6 @@ model User {
 model Customer {}
 ```
 
-
 ## Building blocks
 
 ### Data sources
