@@ -23,6 +23,8 @@ It describes the shape of the data per data source. For example, when connecting
 Here is an example based on a local SQLite database located in the same directory of the project file (called `data.db`):
 
 ```groovy
+// project.prisma
+
 datasource mysql {
   url      = "file:data.db"
   provider = "sqlite"
@@ -71,6 +73,8 @@ enum Role {
   ADMIN
 }
 ```
+
+While this file mostly consists of the data model definition, it is a valid [project file](./prisma-project-file.md) because it also specifies a data source connector (for SQLite, in this case).
 
 ## Models
 
@@ -356,7 +360,7 @@ Here is a list of all available core field attributes:
 - `@unique`: Defines a unique constraint.
 - `@map(\_ name: String)`: Defines the raw column name the field is mapped to.
 - `@default(\_ expr: Expr)`: Specifies a default value.
-- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](#the-relation-attribute).
+- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed. More details [here](./relations.md/#the-relation-attribute).
 - `@updatedAt`: Updates the time to `now()` whenever a record is updated.
 
 ### Connector attributes
