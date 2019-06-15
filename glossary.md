@@ -112,7 +112,13 @@ Also sometimes referred to as:
 
 - Payload
 
-Determines what fields of a model are returned in a Photon API call. By default, the [selection set] contains all (non-lazy) scalar fields of a model. The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
+Determines what fields of a model are returned in a Photon API call. By default, the [selection set]() contains the fields of the following types:
+
+- non-lazy [scalar fields]()
+- enums
+- [embed]() fields
+
+The selection set can be manipulated by passing the `select` or `include` option to a Photon API call.
 
 ### Type modifiers
 

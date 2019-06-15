@@ -75,11 +75,11 @@ To understand which fields are being returned by a certain API call, you need to
 
 The selection set defines the **set of fields on a model instance that is returned in a Photon API call**.
 
-For example, in the `findOne` API call from above, the selection set includes the `id`, `name` and `role` fields of the model `User`. In that example, the selection set has not been manipulated and the API call therefore returns the _default selection set_ which includes all _scalar_ fields of an object.
+For example, in the `findOne` API call from above, the selection set includes the `id`, `name` and `role` fields of the model `User`. In that example, the selection set has not been manipulated and the API call therefore returns the _default selection set_ (read below).
 
 #### The default selection set
 
-If the selection set is not manipulated (via `select` or `include`), a Photon API call returns the **default selection set** for a model. It includes all the _scalar_ fields of the model.
+If the selection set is not manipulated (via `select` or `include`), a Photon API call returns the **default selection set** for a model. It includes all [_scalar_]() fields (including [enums]()) and [_embed_]() fields of the model.
 
 Considering the sample datamodel from above:
 

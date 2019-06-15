@@ -155,6 +155,74 @@ The default value for a required list is an empty list. The default value for an
 
 #### Attributes
 
+Learn more about attributes [below](#field-attributes).
+
+### Embeds
+
+Embeds are defined via the `embed` blocks in the datamodel and define structures that are _embedded_ in a [model](#models). For a relational database this is often called an _embedded type_, for document databases, an _embedded document_.
+
+Embeds are always included in the [default selection set](./photon/api.md#the-default-selection-set) of the [generated API Photon](./photon/api.md).
+
+#### Named embeds
+
+The example [above](#example) defines only one `embed` (called `Address`) which is used exactly once on the `User` model:
+
+```groovy
+model User {
+  id        Int      @id
+  address   Address?
+}
+
+embed Address {
+  street: String
+  zipCode: String
+}
+```
+
+Named embeds can be reused across multiple models.
+
+#### Inline embeds
+
+In the above example, the named embed `Address` is only used once. In this case, it is possible to omit the name and define the `embed` block directly _inline_:
+
+```groovy
+model User {
+  id        Int      @id
+  address   embed {
+    street: String
+    zipCode: String
+  }?
+}
+```
+
+Inline embeds can also be _nested_.
+
+### Enums
+
+An enum describes a _type_ that has a predefined set of values and is defined via an `enum` block:
+
+```groovy
+enum Color {
+  Red
+  Teal
+}
+```
+
+You can map the values of an enum to the respective values in the data source:
+
+```
+enum Color {
+  Red  = "RED"
+  Teal = "TEAL"
+}
+```
+
+Prisma currently only supports string enum value types.
+
+### Type definitions
+
+### Field attributes
+
 Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
 - [Field-level attributes]() are prefixed with `@`.
@@ -178,6 +246,7 @@ Depending on their signature, attributes may be called in the following cases:
 - _Examples_:
   - `@field("my_column")`
   - `@default(10)`
+  - `@createdAt(now())`
 
 For arrays with a single parameter, you **may** omit the surrounding brackets:
 
@@ -210,15 +279,6 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 @attribute(item, key: item)
 ```
 
-#### 
-
-### Embeds
-
-### Enums
-
-### Type definitions
-
-### Attributes
 
 #### Field-level attributes
 
