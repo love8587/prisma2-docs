@@ -60,7 +60,7 @@ Also sometimes referred to as:
 - Database migration
 - Schema migration
 
-A migration is a concept from [Lift](). It refers to the transition from a data model state to another data model state. 
+A migration is a concept from [Lift](#lift). It refers to the transition from a data model state to another data model state. 
 
 ### Migration engine
 

@@ -51,13 +51,18 @@ It contains the following relations:
 
 ## The `@relation` attribute
 
-- `@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)`: Disambiguates relationships when needed.
+The `@relation` attribute disambiguates relationships when needed.
 
-More info:
+It has the following signature:
 
-- fields: _(optional)_ list of field names to reference
-- name: _(optional)_ defines the name of the relationship
-- onDelete: _(optional)_ defines what we do when the referenced relation is
+```groovy
+@relation(\_ fields?: Identifier[], name?: String, onDelete?: CascadeEnum)
+```
+
+
+- `fields` _(optional)_: List of [field](./data-modeling.md#fields) names to reference
+- `name` _(optional)_: Defines the _name_ of the relationship. If this a m:m-relation, the name also determines the name of the relation table in the underlying database.
+- `onDelete` _(optional)_: Defines what we do when the referenced relation is
   deleted
   - **CASCADE**: also delete this entry
   - **SET_NULL**: set the field to null. This is the default
@@ -92,13 +97,9 @@ Under the hood, the models looks like this:
 | id            | integer |
 | user          | integer |
 
-You _may_ omit either `User.profile` or `Profile.user` and the relationship
-will remain intact. This makes either the back-relation or the forward-relation
-optional. If one side of the relation is missing, Prisma implies the field name
-based on the name of the model it is pointing to.
+You _may_ omit either `User.profile` or `Profile.user` and the relationship will remain intact. This makes either the back-relation or the forward-relation optional. If one side of the relation is missing, Prisma implies the field name based on the name of the model it is pointing to.
 
-If you're introspecting an existing database and the foreign key does not follow
-the alphanumeric convention, then Prisma uses the [`@relation`]() attribute to clarify.
+If you're introspecting an existing database and the foreign key does not follow the alphanumeric convention, then Prisma uses the [`@relation`](#the-relation-attribute) attribute to clarify.
 
 ```groovy
 model User {

@@ -11,7 +11,7 @@ Whenever a `prisma2` command is invoked, the CLI typically reads some informatio
 - `prisma2 generate`: Reads _all_ above mentioned information from the datamodel to generated the right data source client code (e.g. Photon JS).
 - `prisma2 lift save`: Reads the data sources and data model definition to create a new [migration](). 
 
-You can also [use environment variables]() inside the project file to provide configuration options when a CLI command is invoked. 
+You can also [use environment variables](#using-environment-variables) inside the project file to provide configuration options when a CLI command is invoked. 
 
 ## Naming
 
@@ -150,7 +150,7 @@ datasource pg {
 }
 ```
 
-When a [`generator`]() block is specified in the project file, the generated code will reference the same environment variables. For example for Photon JS, the generated code could include:
+When a [`generator`](#generators-optional) block is specified in the project file, the generated code will reference the same environment variables. For example for Photon JS, the generated code could include:
 
 ```
 childProcess.spawn('./query_engine', {
