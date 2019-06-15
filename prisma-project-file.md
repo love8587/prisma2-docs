@@ -214,8 +214,6 @@ model User {
 model Customer {}
 ```
 
-## Auto-formatting
-
 
 ## Auto Formatting
 

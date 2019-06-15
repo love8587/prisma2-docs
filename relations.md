@@ -213,7 +213,7 @@ This results in the following tables:
 
 ## Relations in the generated Photon API
 
-The [generated Photon API](./photon/api.md) comes with many helpful features for relations:
+The [generated Photon API](./photon/api.md) comes with many helpful features for relations (find examples below):
 
 - Fluent API to traverse relations on the returned object
 - Eagerly load relations via `select` or `include`

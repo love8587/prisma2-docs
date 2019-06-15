@@ -4,12 +4,12 @@ The MySQL data source connector connects Prisma to a MySQL database server.
 
 ## Example
 
-To connect to a MySQL database server, you need to configure a [`datasource`]() block in your [project file]():
+To connect to a MySQL database server, you need to configure a [`datasource`]() block in your [project file](../../prisma-project-file.md):
 
 ```groovy
 datasource pg {
-  provider = "postgres"
-  url      = env(POSTGRES_URL)
+  provider = "mysql"
+  url      = env(MYSQL_URL)
 }
 
 // ... the file should also contain a data model definition and (optionally) generators
@@ -17,12 +17,21 @@ datasource pg {
 
 The fields passed to the `datasource` block are:
 
-- `provider`: Specifies the `postgres` data source connector.
+- `provider`: Specifies the `mysql` data source connector.
 - `url`: Specifies the [connection string](#connection-string) for the MySQL database server. In this case, we're [using an environment variable]() to provide the connection string.
 
 Find more information on the `datasource` fields [here]().
 
 ## Connection details
+
+### Connection string
+
+MySQL offers also two styles of connection strings. See the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html) for details.
+
+- Key-value string: `{user:'user', host:'localhost', schema:'world'}`
+- Connection URI: `mysql://user@localhost:3333`
+
+The Rust implementation for MySQL accepts connection strings, but it does not seem to follow the official [MySQL standard](https://dev.mysql.com/doc/refman/8.0/en/connecting-using-uri-or-key-value-pairs.html#connection-parameters). Basic connection strings should just work though. 
 
 ### Configuration options
 

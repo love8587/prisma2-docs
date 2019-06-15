@@ -4,7 +4,7 @@ The PostgreSQL data source connector connects Prisma to a PostgreSQL database se
 
 ## Example
 
-To connect to a PostgreSQL database server, you need to configure a [`datasource`]() block in your [project file]():
+To connect to a PostgreSQL database server, you need to configure a [`datasource`]() block in your [project file](../../prisma-project-file.md):
 
 ```groovy
 datasource pg {
@@ -30,23 +30,25 @@ Find more information on the `datasource` fields [here]().
 
 ### Connection string
 
-The connection string needs to follow the [official format](https://www.postgresql.org/docs/10/libpq-connect.html#id-1.7.3.8.3.6) for PostgreSQL connection strings:
+PostgreSQL offers also two styles of connection strings. See the [official documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING) for details.
+
+- Key-value string: `host=localhost port=5432 dbname=mydb connect_timeout=10`
+- Connection URI:
+  ```
+  postgresql://
+  postgresql://localhost
+  postgresql://localhost:5433
+  t
+  postgresql://user@localhost
+  postgresql://user:secret@localhost
+  postgresql://other@localhost/otherdb?connect_timeout=10&application_name=myapp
+  postgresql://host1:123,host2:456/somedb?target_session_attrs=any&application_name=myapp
+  ```
+
+The connection URI needs to follow the [official format](https://www.postgresql.org/docs/10/libpq-connect.html#id-1.7.3.8.3.6) for PostgreSQL connection strings:
 
 ```
 postgresql://[user[:password]@][netloc][:port][,...][/dbname][?param1=value1&...]
-```
-
-A few examples (from the [official docs](ttps://www.postgresql.org/docs/10/libpq-connect.html)) are:
-
-```
-postgresql://
-postgresql://localhost
-postgresql://localhost:5433
-postgresql://localhost/mydb
-postgresql://user@localhost
-postgresql://user:secret@localhost
-postgresql://other@localhost/otherdb?connect_timeout=10&application_name=myapp
-postgresql://host1:123,host2:456/somedb?target_session_attrs=any&application_name=myapp
 ```
 
 ### Configuration options
