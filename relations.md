@@ -213,7 +213,7 @@ This results in the following tables:
 
 ## Relations in the generated Photon API
 
-The generated Photon API comes with many helpful features for relations:
+The [generated Photon API](./photon/api.md) comes with many helpful features for relations:
 
 - Fluent API to traverse relations on the returned object
 - Eagerly load relations via `select` or `include`
@@ -256,6 +256,18 @@ const allPosts: Post[] = await photon.posts.findMany({
 ```
 
 ### Relation filters
+
+```ts
+// Retrieve all posts of a particular user 
+// that start with "Hello"
+const posts: Post[] = await photon.users.findOne({
+  where: { email: 'ada@prisma.io' },
+}).posts({
+  where: {
+    title: { startsWith: "Hello" }
+  }
+})
+```
 
 ### Nested writes
 
