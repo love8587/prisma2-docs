@@ -407,9 +407,7 @@ Prisma core provides the following scalar types:
 | `Float`    | Floating point number |
 | `Datetime` | Timestamp             |
 
-The data source connector determines what native database type each of these types map to.
-
-Similarly, the generator determines what type in the target programming language  each of these types map to.
+The _data source connector_ determines what _native database type_ each of these types map to. Similarly, the _generator_ determines what _type in the target programming language_  each of these types map to.
 
 Expand below to see the mappings per connector and generator.
 
@@ -429,7 +427,7 @@ Expand below to see the mappings per connector and generator.
 **_N/A_:** Means that there is no perfect equivalent, but we can probably get pretty
 close.
 
-**Geneators**
+**Generators**
 
 | Type     | JS / TS | Go        |
 | -------- | ------- | --------- |
