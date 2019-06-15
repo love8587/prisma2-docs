@@ -76,7 +76,7 @@ On a technical level, a model maps to the underlying structures of the data sour
 
 Models are typically spelled in [PascalCase](http://wiki.c2.com/?PascalCase) and use the _singular_ form (e.g. `User` instead of `Users`).
 
-Technically, a model can be named anything that adheres to this regular expressions: 
+Technically, a model can be named anything that adheres to this regular expression: 
 
 ```
 [A-Za-z_][A-Za-z0-9_]*
@@ -84,7 +84,7 @@ Technically, a model can be named anything that adheres to this regular expressi
 
 #### Model operations in the Photon API (CRUD)
 
-Every _model_ in the data model definition will result into a number of CRUD operations:
+Every _model_ in the data model definition will result into a number of CRUD operations in the generated [Photon API]():
 
 - `findMany`
 - `findOne`
@@ -95,9 +95,9 @@ Every _model_ in the data model definition will result into a number of CRUD ope
 - `updateMany`
 - `deleteMany`
 
-The operations are accessible via a generated property on the Photon instance. By default the name of the property is the plural, lowercase form of the model name, e.g. `users` for a `User` model or `posts` for a `Post` model. You can configure the name of the property in the data model.
+The operations are accessible via a generated property on the Photon instance. By default the name of the property is the plural, lowercase form of the model name, e.g. `users` for a `User` model or `posts` for a `Post` model. 
 
-Here is an example illustrating the use of a `users` property from the Photon JS API:
+Here is an example illustrating the use of a `users` property from the [Photon JS API](./photon/api.md):
 
 ```js
 const newUser = await photon.users.create({ data: {
@@ -123,7 +123,7 @@ You can see examples of fields on the sample models [above](#examples).
 
 Field names are typically spelled in [camelCase](http://wiki.c2.com/?CamelCase) starting with a lowercase letter.
 
-Technically, a model can be named anything that adheres to this regular expressions: 
+Technically, a model can be named anything that adheres to this regular expression: 
 
 ```
 [A-Za-z_][A-Za-z0-9_]*
@@ -155,7 +155,65 @@ The default value for a required list is an empty list. The default value for an
 
 #### Attributes
 
+Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
+- [Field-level attributes](): Are prefixed with `@`
+- [Block-level attributes](): Are prefixed with `@@`
+
+Depending on their signature, attributes may be called in the following cases:
+
+##### Case 1. 
+
+| Scenario | Signature | Description | Examples |
+| --- | --- | --- | --- |
+| No arguments |`@attribute` | Parenthesis **must** be omitted. | TBD | 
+
+
+ Examples:
+
+- `@id`
+- `@unique`
+- `@updatedAt`
+
+##### Case 2. One positional argument: `@attribute(_ p0: T0, p1: T1, ...)`
+
+There may be up to one positional argument that doesn't need to be named. Examples:
+
+- `@field("my_column")`
+- `@default(10)`
+
+For arrays with a single parameter, you **may** omit the surrounding brackets:
+
+```groovy
+@attribute([email]) // is the same as
+@attribute(email)
+```
+
+##### Case 3. Many named arguments:
+
+There may be any number of named
+arguments. If there is a positional argument, then it **may** appear anywhere in
+the function signature, but if it's present and required, the caller **must**
+place it before any named arguments. Named arguments may appear in any order:
+
+- `@@pg.index([ email, first_name ], name: "my_index", partial: true)`
+- `@@pg.index([ first_name, last_name ], unique: true, name: "my_index")`
+- `@@check(a > b, name: "a_b_constraint")`
+- `@pg.numeric(precision: 5, scale: 2)`
+
+You **must not** have multiple arguments with the same name:
+
+```groovy
+// compiler error
+@attribute(key: "a", key: "b")
+```
+
+For arrays with a single parameter, you **may** omit the surrounding brackets:
+
+```groovy
+@attribute([item], key: [item]) // is the same as
+@attribute(item, key: item)
+```
 
 #### 
 
@@ -169,7 +227,7 @@ The default value for a required list is an empty list. The default value for an
 
 #### Field-level attributes
 
-#### Model-level attributes
+#### Block-level attributes
 
 ### Functions
 
