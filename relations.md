@@ -28,7 +28,6 @@ embed Address {
 model Profile {
   id   Int    @id
   user User
-  bio  String
 }
 
 model Post {
@@ -74,7 +73,15 @@ More info:
 The return value on both sides is a nullable single value. Prisma prevents accidentally storing multiple records in the relation.
 
 ```
+model User {
+  id        Int      @id
+  profile   Profile?
+}
 
+model Profile {
+  id   Int    @id
+  user User
+}
 ```
 
 
