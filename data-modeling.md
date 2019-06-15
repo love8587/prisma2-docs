@@ -2,16 +2,15 @@
 
 - [Data model definition](#data-model-definition)
 - [Example](#example)
-- [Building blocks](#building-blocks)
-  - [Models](#models)
-  - [Fields](#fields)
-  - [Embeds](#embeds)
-  - [Enums](#enums)
-  - [Type definitions](#type-definitions)
-  - [Attributes](#attributes)
-  - [Functions](#functions)
-  - [Scalar types](#scalar-types)
-  - [Relations](#relations)
+- [Models](#models)
+- [Fields](#fields)
+- [Embeds](#embeds)
+- [Enums](#enums)
+- [Type definitions](#type-definitions)
+- [Attributes](#attributes)
+- [Functions](#functions)
+- [Scalar types](#scalar-types)
+- [Relations](#relations)
 
 ## Data model definition
 
