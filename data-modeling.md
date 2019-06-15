@@ -164,9 +164,9 @@ Depending on their signature, attributes may be called in the following cases:
 
 **Case 1. No arguments**
 
-- **Signature**: `@attribute`
-- **Description**: Parenthesis **must** be omitted.
-- **Examples**:
+- Signature: `@attribute`
+- Description: Parenthesis **must** be omitted.
+- Examples:
   - `@id`
   - `@unique`
   - `@updatedAt`
