@@ -70,7 +70,7 @@ A generator may bring its own fields to allow users to customize the generation 
 ```groovy
 generator js {
   target   = "es3"
-  provider = "javascript"
+  provider = "photon-js"
   output   = "./client"
 }
 

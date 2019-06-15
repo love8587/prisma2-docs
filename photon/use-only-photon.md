@@ -2,7 +2,7 @@
 
 You can use Photon as an ORM in your application without using Lift for database migrations. This is useful for _existing applications_ when there already is a working migration system or when you don't have the rights inside your organization to perform database migrations yourself.
 
-When using Photon without Lift, you obtain your data model definition by _introspecting_ your database schema and generating the Prisam data model from it. The generated data model then serves as foundation for Photon's generated CRUD API. Whenever a schema migration is performed on the database afterwards, you need to re-introspect your database (which updates your data model) and re-generate your Photon API.
+When using Photon without Lift, you obtain your data model definition by _introspecting_ your database schema and generating the Prisma data model from it. The generated data model then serves as foundation for Photon's generated CRUD API. Whenever a schema migration is performed on the database afterwards, you need to re-introspect your database (which updates your data model) and re-generate your Photon API.
 
 **This page is about using Photon with an existing database**. Learn more about getting started from scratch with Photon and Lift [here](./).
 
