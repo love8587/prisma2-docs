@@ -76,6 +76,36 @@ model User {
 
 Depending on which environment variable is set (in this case `SQLITE_URL` or `POSTGRES_URL`), the respective data source will be used.
 
+## Writing comments
+
+There are two types of comments that are supported in the project file:
+
+- `// comment`: This comment is for the reader's clarity and is not present in the AST of the project file.
+- `/// comment`: These comments will show up in the AST of the project file, either as descriptions to AST nodes or as free-floating comments. Tools can then use these comments to provide additional information to the user.
+
+Here are some different examples:
+
+```groovy
+/// This comment will get attached to the `User` node
+model User {
+  /// This comment will get attached to the `id` node
+  id      Int
+  // This comment is just for you
+  weight  Float /// This comment gets attached to the `weight` node
+}
+
+// This comment is just for you. This comment will not
+// show up in the AST.
+
+/// This is a free-floating comment that will show up
+/// in the AST as a `Comment` node, but is not attached
+/// to any other node. We can use these for documentation
+/// in the same way that godoc.org works.
+
+model Customer {}
+```
+
+
 ## Building blocks
 
 ### Data sources
@@ -173,3 +203,14 @@ generator go {
 ```
 
 ### Data model definition
+
+There are several blocks you can use for _data modeling_ in your project file:
+
+- `model`
+- `enum`
+- `type`
+- `embed`
+
+There also are _attributes_ and _functions_ you can use to enhance the functionality of your data model definition.
+
+Learn about the data modeling components in detail [here](./data-modeling.md)

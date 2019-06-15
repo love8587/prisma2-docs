@@ -50,7 +50,7 @@ postgresql://host1:123,host2:456/somedb?target_session_attrs=any&application_nam
 - **Host**: The IP address/domain of your database server, e.g. `localhost`.
 - **Post**: The port on which your database server listens, e.g. `5432`.
 - **Database**: The name of the database target schema. 
-- **Schema**: The name target schema. 
+- **Schema**: The name of the target schema. 
 - **User**: The database user, e.g. `admin`.
 - **Password**: The password for the database user.
 - **SSL**: Whether or not your database server uses SSL.
