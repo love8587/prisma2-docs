@@ -1,5 +1,14 @@
 # Data modeling
 
+- [Data model definition](#data-model-definition)
+- [Example](#example)
+- [Building blocks](#building-blocks)
+  - [Models](#models)
+  - [Fields](#fields)
+  - [Embeds](#embeds)
+  - [Enums](#enums)
+  - [Type definitions](#type-definitions)
+
 ## Data model definition
 
 The data model definition (short: data model or datamodel) is part of your [project file](./prisma-project-file.md).
