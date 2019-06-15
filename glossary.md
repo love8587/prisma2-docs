@@ -8,6 +8,10 @@ A composite model is a model that doesn't directly map to a structure (e.g. a _t
 
 A data source can be anything that Prisma can connect to via a [connector](#data-source-connector), e.g. a database, a GraphQL API, a REST API or a 3rd-party service.
 
+### Data source client
+
+A data source client 
+
 ### Data source connector
 
 Also sometimes referred to as:
