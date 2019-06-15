@@ -333,7 +333,7 @@ Prisma supports the following core field attributes. Field attributes may be use
 
 ##### @updatedAt
 
-Updates the time to `now()` whenever the model is updated
+Updates the time to `now()` whenever the model is updated.
 
 #### Block Attributes
 

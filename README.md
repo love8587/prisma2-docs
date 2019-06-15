@@ -18,6 +18,7 @@ Learn more about the `prisma init` flow [here](./getting-started.md).
 - [Prisma ecosystem](./prisma-ecosystem.md)
 - [Prisma project file](./prisma-project-file.md)
 - [Data modeling](./data-modeling.md)
+- [Relations](./relations.md)
 - [Data sources](./data-sources.md)
 - [Prisma 2 CLI](./prisma-2-cli)
 - [Introspection](./introspection.md)
