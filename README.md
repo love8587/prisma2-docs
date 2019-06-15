@@ -14,11 +14,22 @@ Learn more about the `prisma init` flow [here](./getting-started.md).
 ## Contents
 
 - [Getting started](./getting-started.md)
+- [Tutorial](./tutorial.md)
 - [Prisma ecosystem](./prisma-ecosystem.md)
-- [Prisma project file](prisma-project-file.md)
-- [Data modeling](data-modeling.md)
+- [Prisma project file](./prisma-project-file.md)
+- [Data modeling](./data-modeling.md)
+- [Data sources](./data-sources.md)
 - [Prisma 2 CLI](./prisma-2-cli)
 - [Introspection](./introspection.md)
+- [Limitations](./limitations.md)
+- Core
+  - Connectors
+    - [MySQL](./core/connectors/mysql.md)
+    - [PostgreSQL](./core/connectors/postgres.md)
+    - [SQLite](./core/connectors/sqlite.md)
+    - [MongoDB](./core/connectors/mongo.md)
+  - Generators
+    - [Photon JS](./core/generators/photon-js.md)
 - Photon
   - [API](./photon/api.md)
   - [Use only Photon](./photon/use-only-photon.md)
