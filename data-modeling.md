@@ -162,10 +162,10 @@ Attributes modify the behavior of a [field]() or block ([model](), [embed](), ..
 
 Depending on their signature, attributes may be called in the following cases:
 
-##### Case 1. 
-
 | Scenario | Signature | Description | Examples |
 | --- | --- | --- | --- |
+| No arguments |`@attribute` | Parenthesis **must** be omitted. | TBD | 
+| One positional argument | `@attribute(_ p0: T0, p1: T1, ...)` | There may be up to one positional argument that doesn't need to be named | TBD | 
 | No arguments |`@attribute` | Parenthesis **must** be omitted. | TBD | 
 
 
@@ -175,9 +175,9 @@ Depending on their signature, attributes may be called in the following cases:
 - `@unique`
 - `@updatedAt`
 
-##### Case 2. One positional argument: `@attribute(_ p0: T0, p1: T1, ...)`
+##### Case 2. : `@attribute(_ p0: T0, p1: T1, ...)`
 
-There may be up to one positional argument that doesn't need to be named. Examples:
+. Examples:
 
 - `@field("my_column")`
 - `@default(10)`
