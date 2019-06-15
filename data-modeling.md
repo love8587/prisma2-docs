@@ -98,7 +98,7 @@ Technically, a model can be named anything that adheres to this regular expressi
 
 ### Model operations in the Photon API (CRUD)
 
-Every _model_ in the data model definition will result into a number of CRUD operations in the generated [Photon API]():
+Every _model_ in the data model definition will result into a number of CRUD operations in the generated [Photon API](./photon/api.md):
 
 - `findMany`
 - `findOne`
@@ -249,10 +249,10 @@ model User {
 
 ## Attributes
 
-Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
+Attributes modify the behavior of a [field](#fields) or block ([model](#models), [embed](#embeds), ...). There are two ways to add attributes to your data model:
 
-- [Field attributes]() are prefixed with `@`.
-- [Block attributes]() are prefixed with `@@`.
+- [Field attributes](#field-attributes) are prefixed with `@`.
+- [Block attributes](#block-attributes) are prefixed with `@@`.
 
 Depending on their signature, attributes may be called in the following cases:
 
@@ -291,14 +291,14 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
   - `@@check(a > b, name: "a_b_constraint")`
   - `@pg.numeric(precision: 5, scale: 2)`
 
-You **must not** have multiple arguments with the same name:
+You must not have multiple arguments with the same name:
 
 ```groovy
 // compiler error
 @attribute(key: "a", key: "b")
 ```
 
-For arrays with a single parameter, you **may** omit the surrounding brackets:
+For arrays with a single parameter, you may omit the surrounding brackets:
 
 ```groovy
 @attribute([item], key: [item]) // is the same as
@@ -307,7 +307,7 @@ For arrays with a single parameter, you **may** omit the surrounding brackets:
 
 ### Field attributes
 
-Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines.
+Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines:
 
 ```
 // A field with one attribute
@@ -350,7 +350,7 @@ embed \_ { @@attribute0
 
 ### Core attributes
 
-_Core_ attributes must be implemented by every [data source]() connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
+_Core_ attributes must be implemented by every [data source](./prisma-project-file.md#data-sources) connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
 
 They may be used in `model` and `embed` blocks as well as on `type` definitions
 
@@ -369,16 +369,14 @@ _Connector_ attributes let you use the native features of your data source. With
 
 Here is where you can find the documentation of connector attributes per data source connector:
 
-- [MySQL]()
-- [PostgreSQL]()
-- [SQLite]()
-- [MongoDB]()
+- [MySQL](./core/connectors/mysql.md)
+- [PostgreSQL](./core/connectors/postgres.md)
+- [SQLite](./core/connectors/sqlite.md)
+- [MongoDB](./core/connectors/mongo.md)
 
 ## Functions
 
-Prisma core provides a set of functions that _must_ be implemented by every
-connector with a _best-effort implementation_. Functions only work inside
-field and block attributes that accept them:
+Prisma core provides a set of functions that _must_ be implemented by every connector with a _best-effort implementation_. Functions only work inside field and block attributes that accept them:
 
 - `uuid()`:Generates a fresh UUID
 - `cuid()`:Generates a fresh cuid

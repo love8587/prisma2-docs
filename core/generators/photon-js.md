@@ -8,7 +8,7 @@ The `photon-js` generator targets [ES2016](https://exploringjs.com/es2016-es2017
 
 ## Example
 
-To invoke the generator, you need to add a [`generator`]() block to your project file and specify the `photon-js` provider:
+To invoke the generator, you need to add a [`generator`](../../prisma-project-file.md#generators-optional) block to your project file and specify the `photon-js` provider:
 
 ```groovy
 generator js {
@@ -27,12 +27,14 @@ prisma2 generate
 
 It will then store the generated Photon API in the specified `./generated/photon` directory. Learn more about the [generated Photon API](../../photon/api.md).
 
-<!-- ## Fields
+## Mapping types from the data model
 
-The following table describes all _additional_ fields that can be applied to the `photon-js` generator. You can learn more about the standard fields of a generator [here]().
+The Photon JS generator provides the following mapping from data model [scalar types](../../data-modeling.md#scalar-types):
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| `target` | Enum () | TBD | Specifies the ECMAScript version for the generated Photon JS. |
- -->
-
+| Type     | JS / TS | 
+| -------- | ------- |
+| `String`   | `string`  |
+| `Boolean`  | `boolean` |
+| `Int`      | `number`  |
+| `Float`    | `number`  |
+| `Datetime` | `Date`    |
