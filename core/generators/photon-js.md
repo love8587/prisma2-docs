@@ -29,7 +29,7 @@ It will then store the generated Photon API in the specified `./generated/photon
 
 ## Mapping types from the data model
 
-The Photon JS generator provides the following mapping from data model [scalar types](../../data-modeling.md#scalar-types):
+The Photon JS generator provides the following mapping from data model [scalar types](../../data-modeling.md#scalar-types) to JavaScript/TypeScript types:
 
 | Type     | JS / TS | 
 | -------- | ------- |
