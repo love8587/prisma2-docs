@@ -157,27 +157,23 @@ The default value for a required list is an empty list. The default value for an
 
 Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
-- [Field-level attributes](): Are prefixed with `@`
-- [Block-level attributes](): Are prefixed with `@@`
+- [Field-level attributes]() are prefixed with `@`.
+- [Block-level attributes]() are prefixed with `@@`.
 
 Depending on their signature, attributes may be called in the following cases:
 
-| Scenario | Signature | Description | Examples |
-| --- | --- | --- | --- |
-| No arguments |`@attribute` | Parenthesis **must** be omitted. | TBD | 
-| One positional argument | `@attribute(_ p0: T0, p1: T1, ...)` | There may be up to one positional argument that doesn't need to be named | TBD | 
-| No arguments |`@attribute` | Parenthesis **must** be omitted. | TBD | 
+##### Case 1. No arguments
 
+- **Signature**: `@attribute`
+- **Description**: Parenthesis **must** be omitted.
+- **Examples**:
+  - `@id`
+  - `@unique`
+  - `@updatedAt`
 
- Examples:
+##### Case 2. One positional argument: `@attribute(_ p0: T0, p1: T1, ...)`
 
-- `@id`
-- `@unique`
-- `@updatedAt`
-
-##### Case 2. : `@attribute(_ p0: T0, p1: T1, ...)`
-
-. Examples:
+There may be up to one positional argument that doesn't need to be named. Examples:
 
 - `@field("my_column")`
 - `@default(10)`
