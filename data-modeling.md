@@ -407,10 +407,16 @@ Prisma core provides the following scalar types:
 | `Float`    | Floating point number |
 | `Datetime` | Timestamp             |
 
-The data source connector determines what native database type each of these types map to. Expand below to see the mappings per connector.
+The data source connector determines what native database type each of these types map to.
 
-<Details><Summary></Summary>
+Similarly, the generator determines what type in the target programming language  each of these types map to.
+
+Expand below to see the mappings per connector and generator.
+
+<Details><Summary>Scalar mapping to connectors and generators</Summary>
 <br />
+
+**Connectors**
 
 | Type     | PostgreSQL  | MySQL     | SQLite  | Mongo  | Raw JSON |
 | -------- | --------- | --------- | ------- | ------ | -------- |
@@ -420,19 +426,18 @@ The data source connector determines what native database type each of these typ
 | `Float`    | `real`      | `FLOAT`     | `REAL`    | `double` | `number`   |
 | `Datetime` | `timestamp` | `TIMESTAMP` | _N/A_   | `date`   | _N/A_    |
 
-
-**\_N/A:** here means no perfect equivalent, but we can probably get pretty
+**_N/A_:** Means that there is no perfect equivalent, but we can probably get pretty
 close.
 
-#### Core Data Type to Generator
+**Geneators**
 
 | Type     | JS / TS | Go        |
 | -------- | ------- | --------- |
-| String   | string  | string    |
-| Boolean  | boolean | bool      |
-| Int      | number  | int       |
-| Float    | number  | float64   |
-| Datetime | Date    | time.Time |
+| `String`   | `string`  | `string`    |
+| `Boolean`  | `boolean` | `bool`      |
+| `Int`      | `number`  | `int`       |
+| `Float`    | `number`  | `float64`   |
+| `Datetime` | `Date`    | `time.Time` |
 
 
 </Details>
