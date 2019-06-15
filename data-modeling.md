@@ -91,9 +91,11 @@ const allUsers = await photon.users.findMany()
 The properties of a [model](#models) are called _fields_. A field consists of several parts:
 
 - [Name](#naming-fields)
-- Type
-- Type modifier (optional)
-- Attributes (optional)
+- [Type](#types)
+- [Type modifier](#type-modifiers) (optional)
+- [Attributes](#attributes) (optional)
+
+You can see examples of fields on the sample models [above](#examples).
 
 #### Naming fields
 
@@ -106,6 +108,12 @@ Technically, a model can be named anything that adheres to this regular expressi
 ```
 
 #### Types
+
+The type of a field determines its _structure_. A type falls in either of three categories:
+
+- [Scalar type](#scalar-types) (includes [enums](#enums))
+- [Model](#models)
+- [Embed](#embeds)
 
 #### Type modifiers
 
