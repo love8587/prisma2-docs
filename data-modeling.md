@@ -8,6 +8,10 @@
   - [Embeds](#embeds)
   - [Enums](#enums)
   - [Type definitions](#type-definitions)
+  - [Attributes](#attributes)
+  - [Functions](#functions)
+  - [Scalar types](#scalar-types)
+  - [Relations](#relations)
 
 ## Data model definition
 
@@ -162,9 +166,9 @@ Lists can also be optional and will give the list a third state (which is `null`
 
 The default value for a required list is an empty list. The default value for an optional list is `null`.
 
-#### Attributes
+#### Field attributes
 
-Learn more about attributes [below](#field-attributes).
+Learn more about attributes [below](#attributes).
 
 ### Embeds
 
@@ -230,7 +234,7 @@ Prisma currently only supports string enum value types.
 
 ### Type definitions
 
-### Field attributes
+### Attributes
 
 Attributes modify the behavior of a [field]() or block ([model](), [embed](), ...). There are two ways to add attributes to your data model:
 
