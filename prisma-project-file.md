@@ -26,34 +26,63 @@ A data source can be specified using a `datasource` block in the project file.
 
 | Name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `provider` | **Yes** | Enum: `postgres`, `mysql`, `sqlite` | Describes which data source connector to use. |
-| `url` | **Yes** | String | Connection URL including authentication info. Each data source connector documents the URL syntax. Most connectors use the syntax provided by the database. |
+| `provider` | **Yes** | Enum (`postgres`, `mysql`, `sqlite`) | Describes which data source connector to use. |
+| `url` | **Yes** | String (URL) | Connection URL including authentication info. Each data source connector documents the URL syntax. Most connectors use the syntax provided by the database. |
 | `enabled` | No | Boolean | Use environment variables to enable/disable a data source. **Default**: `false`. |
+
+A data source connector may bring its own fields to allow users to tailor their data models according to specific features of the connected data sources.
 
 #### Examples
 
 ```groovy
 datasource pg {
-  provider = "postgresql"
-  url      = env.POSTGRES_URL
+  provider = "postgres"
+  url      = env(POSTGRES_URL)
   enabled  = true
 }
 
 datasource mgo {
   provider = "mongodb"
-  url      = env.MONGO_URL
+  url      = env(MONGO_URL)
 }
 
 datasource mgo2 {
   provider = "mongodb"
-  url      = env.MONGO2_URL
+  url      = env(MONGO2_URL)
 }
 ```
 
 ### Generators (optional)
 
-A generator configures what data source clients are generated and how they're generated. Language preferences and configuration will go in here:
+A generator configures what data source clients are generated and how they're generated. Language preferences and configuration will go in here.
 
+#### Fields
 
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| `provider` | **Yes** | String (file path) or Enum (`javascript`, `typescript`, `golang`)s | Describes which generator to use. This can point to a file that implements a generator or specify a built-in generator directly. |
+| `output` | **Yes** | String (file path) | Determines the location for the generated client. |
+
+A generator may bring its own fields to allow users to customize the generation behaviour.
+
+#### Examples
+
+```groovy
+generator js {
+  target   = "es3"
+  provider = "javascript"
+  output   = "./client"
+}
+
+generator ts {
+  target   = "es5"
+  provider = "./path/to/custom/generator"
+}
+
+generator go {
+  snakeCase = true
+  provider  = "go"
+}
+```
 
 ### Data model definition
