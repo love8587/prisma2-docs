@@ -9,7 +9,7 @@ npm install -g prisma2
 prisma2 init hello-prisma
 ```
 
-Learn more about the `prisma init` flow [here](./getting-started.md).
+Learn more about the `prisma2 init` flow [here](./getting-started.md).
 
 ## Contents
 
