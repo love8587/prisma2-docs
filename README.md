@@ -9,6 +9,8 @@ npm install -g prisma2
 prisma2 init hello-prisma
 ```
 
+The interactive prompt will ask you to provide database credentials for your database. If you don't have a database yet, select **SQLite** and let the CLI set up a database file for you.
+
 Learn more about the `prisma2 init` flow [here](./getting-started.md).
 
 ## Contents
