@@ -2,7 +2,7 @@
 
 ## Getting started
 
-The easiest way to get started with Photon and/or Lift is by installing the Prisma CLI and running the interactive `init` command:
+The easiest way to get started with [Photon](https://github.com/prisma/photonjs) and/or [Lift](https://github.com/prisma/lift) is by installing the Prisma CLI and running the interactive `init` command:
 
 ```
 npm install -g prisma2
