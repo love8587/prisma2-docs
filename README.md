@@ -1,5 +1,7 @@
 # Prisma 2 Docs
 
+This repository currently contains the documentation for Prisma 2 which is currently in _Preview_. Once Prisma 2 is released for _General Availability_, the docs will be moved into respective locations on prisma.io.
+
 ## Getting started
 
 The easiest way to get started with Photon and/or Lift is by installing the Prisma CLI and running the interactive `init` command:
