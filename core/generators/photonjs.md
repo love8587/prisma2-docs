@@ -4,7 +4,7 @@ The Photon JS generator can be used in a [Prisma project file](../../prisma-proj
 
 ## Target
 
-The `photon-js` generator targets [ES2016](https://exploringjs.com/es2016-es2017/) & [Node.js 8.x +](https://nodejs.org/en/download/releases/).
+The `photonjs` generator targets [ES2016](https://exploringjs.com/es2016-es2017/) & [Node.js 8.x +](https://nodejs.org/en/download/releases/).
 
 ## Example
 
@@ -12,7 +12,7 @@ To invoke the generator, you need to add a [`generator`](../../prisma-project-fi
 
 ```groovy
 generator js {
-  provider = "photon-js"
+  provider = "photonjs"
   output   = "./generated/photon"
 }
 

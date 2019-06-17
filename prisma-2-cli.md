@@ -1,5 +1,21 @@
 # Prisma 2 CLI
 
+## Installation
+
+The Prisma 2 CLI currently requires [Node 8](https://nodejs.org/en/download/releases/) (or higher).
+
+### npm
+
+```
+npm install -g prisma2
+```
+
+### Yarn
+
+```
+yarn global add prisma2
+```
+
 ## General
 
 ### `prisma2 init`

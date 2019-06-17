@@ -16,7 +16,7 @@ A composite model is a model that doesn't directly map to a structure (e.g. a _t
 - [Lift](#lift)
 - [Migration](#migration)
 - [Migration engine](#migration-engine)
-- [Model(#model)
+- [Model](#model)
 - [Data model definition](#data-model-definition)
 - [Nested write](#nested-write)
 - [Photon](#photon)

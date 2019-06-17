@@ -1,5 +1,7 @@
 # Prisma 2 Docs
 
+This repository currently contains the documentation for Prisma 2 which is currently in _Preview_. Once Prisma 2 is released for _General Availability_, the docs will be moved into respective locations on prisma.io.
+
 ## Getting started
 
 The easiest way to get started with [Photon](https://github.com/prisma/photonjs) and/or [Lift](https://github.com/prisma/lift) is by installing the Prisma CLI and running the interactive `init` command:
@@ -9,7 +11,9 @@ npm install -g prisma2
 prisma2 init hello-prisma
 ```
 
-Learn more about the `prisma init` flow [here](./getting-started.md).
+The interactive prompt will ask you to provide database credentials for your database. If you don't have a database yet, select **SQLite** and let the CLI set up a database file for you.
+
+Learn more about the `prisma2 init` flow [here](./getting-started.md).
 
 ## Contents
 
