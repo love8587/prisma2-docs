@@ -8,3 +8,5 @@ A few examples are:
 - GraphQL APIs
 - REST APIs
 - 3rd-party APIs (e.g. the Stripe API)
+
+You can also implement your own connectors for data sources. More info on that will follow soon.
