@@ -13,6 +13,46 @@ Whenever a `prisma2` command is invoked, the CLI typically reads some informatio
 
 You can also [use environment variables](#using-environment-variables) inside the project file to provide configuration options when a CLI command is invoked. 
 
+## Example
+
+Here is a simple example for a project file that specifies a data source (SQLite), a generator (Photon JS) and a simple data model definition:
+
+```groovy
+// project.prisma
+
+datasource mysql {
+  url      = "file:data.db"
+  provider = "sqlite"
+}
+
+generator photonjs {
+  provider = 'photonjs'
+}
+
+model User {
+  id        Int      @id
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  posts     Post[]
+}
+
+model Post {
+  id         Int        @id
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  author     User
+  title      String
+  published  Boolean    @default(false)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+```
+
 ## Naming
 
 The default name for the project file is `project.prisma`. When your project file is named like this, the Prisma 2 CLI will detect it automatically in the directory where you invoke the CLI command.
