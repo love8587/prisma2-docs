@@ -1,4 +1,4 @@
-# Limitations
+# Current limitations
 
 - Does not work on Windows. Tested on Mac and Linux only.
 - Processes 1 request at a time, no parallelism during the early preview period.
@@ -9,3 +9,4 @@
     - `Int @id`
     - `String @default(uuid())`
     - `String @default(cuid())`
+- When [introspecting](./introspection.md) a database, Prisma only recognizes many-to-many relations that follow the Prisma conventions for [relation tables](https://github.com/prisma/prisma2-docs/blob/master/relations.md#mn).
