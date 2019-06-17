@@ -3,7 +3,7 @@
 The Prisma project file (short: project file) is the main configuration file for your Prisma project. It contains the following parts:
 
 - [**Data sources**](./data-sources.md): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
-- [**Data model definition**](#./data-modeling.md): Specifies your application models (the shape of the data per data source)
+- [**Data model definition**](./data-modeling.md): Specifies your application models (the shape of the data per data source)
 - **Generators** (optional): Specifies what data source clients should be generated based on the data model (e.g. Photon JS)
 
 Whenever a `prisma2` command is invoked, the CLI typically reads some information from the project file, e.g.:

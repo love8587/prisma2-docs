@@ -1,4 +1,4 @@
-# Prisma Docs
+# Prisma 2 Docs
 
 ## Getting started
 
