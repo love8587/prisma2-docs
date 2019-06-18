@@ -34,7 +34,7 @@ A data source can be anything that Prisma can connect to via a [connector](#data
 
 ### Data source client
 
-A data source client provides a type-safe data access API for a data source. Depending on the data source, the API can be read-only, write-onlly or allow both. Note that the most common data source connectors allows for both.
+A data source client provides a type-safe data access API for a data source. Depending on the data source, the API can be read-only, write-only or allow both. Note that the most common data source connectors allows for both.
 
 ### Data source connector
 
