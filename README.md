@@ -2,6 +2,8 @@
 
 This repository currently contains the documentation for Prisma 2 which is currently in _Preview_. Once Prisma 2 is released for _General Availability_, the docs will be moved into respective locations on prisma.io.
 
+> Lift and Photon are currently in Preview! [Limitations](https://github.com/prisma/prisma2-docs/blob/master/limitations.md) include missing features, limited performance and stability issues.
+
 ## Getting started
 
 The easiest way to get started with [Photon](https://github.com/prisma/photonjs) and/or [Lift](https://github.com/prisma/lift) is by installing the Prisma CLI and running the interactive `init` command:
