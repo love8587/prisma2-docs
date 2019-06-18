@@ -67,17 +67,6 @@ Finally, you can decide how your initial project setup should look like:
 
 ## Installing the Prisma CLI
 
-### curl
-
-```
-TBD
-```
-
-### Homebrew
-
-```
-TBD
-```
 
 ### NPM
 
