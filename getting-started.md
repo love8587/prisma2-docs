@@ -18,7 +18,7 @@ The first step asks you which kind of database you want to use with Photon/Lift.
 - **SQLite**
 - **MySQL**
 - **PostgreSQL**
-- MongoDB (coming very soon)
+- MongoDB (coming soon)
 
 > When choosing **SQLite**, you can either point the Prisma CLI to an existing SQLite database file or let it create a new database file for you. With **all other options**, you'll need to provide the database connection details and credentials in the next step. 
 
@@ -54,7 +54,7 @@ If your previous selection included Photon, you're now prompted for the language
 
 - **JavaScript**
 - **TypeScript**
-- **Go**
+- Go (coming soon)
 
 ### 5. Boilerplate selection (only Photon)
 
