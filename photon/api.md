@@ -8,6 +8,7 @@ Photon is a type-safe database client auto-generated based on your [data model d
 - [Relations](#relations)
 - [Raw databases access](#raw-database-access)
 - [API Reference](#api-reference)
+- [Debugging](#debugging)
 
 ## Overview
 
@@ -311,3 +312,10 @@ const deletedUserCount = await photon.users.deleteMany({
 })
 ```
 
+## Debugging
+
+You can view the generated database queries that Photon sends to your database by setting the `debug` option to `true` when instantianting `Photon`:
+
+```ts
+const Photon = new Photon({ debug: true })
+```
