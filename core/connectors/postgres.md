@@ -46,7 +46,7 @@ PostgreSQL offers also two styles of connection strings. See the [official docum
   postgresql://
   postgresql://localhost
   postgresql://localhost:5433
-  t
+  postgresql://localhost/mydb
   postgresql://user@localhost
   postgresql://user:secret@localhost
   postgresql://other@localhost/otherdb?connect_timeout=10&application_name=myapp
