@@ -9,7 +9,7 @@ To connect to a MySQL database server, you need to configure a [`datasource`](..
 ```groovy
 datasource pg {
   provider = "mysql"
-  url      = env(MYSQL_URL)
+  url      = env("MYSQL_URL")
 }
 
 // ... the file should also contain a data model definition and (optionally) generators
