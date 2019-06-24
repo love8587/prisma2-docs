@@ -2,11 +2,11 @@
 
 This is an extension of the [data modeling](./data-modeling.md) chapter that discusses _relations_ in the data model definition in detail.
 
-The examples on this page are based on this [project file](./prisma-project-file.md):
+The examples on this page are based on this [schema file](./prisma-schema-file.md):
 
 
 ```groovy
-// project.prisma
+// schema.prisma
 
 datasource mysql {
   url      = "file:data.db"

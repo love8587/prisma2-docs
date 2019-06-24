@@ -20,7 +20,7 @@ yarn global add prisma2
 
 ### `prisma2 init`
 
-Sets up a new Prisma project via an interactive wizard.
+Sets up Prisma (i.e. Photon and/or Lift) via an interactive wizard.
 
 ### `prisma2 dev`
 
@@ -28,7 +28,7 @@ Starts the Prisma development mode.
 
 ### `prisma2 generate`
 
-Invokes the generators specified in the Prisma project file.
+Invokes the generators specified in the Prisma schema file.
 
 ### `prisma2 introspect`
 
@@ -52,4 +52,4 @@ Undo migrations.
 
 ### `prisma2 convert`
 
-Convert the Prisma 1 service configuration to a Prisma 2 project file.
+Convert the Prisma 1 service configuration to a Prisma 2 schema file.
