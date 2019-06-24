@@ -307,7 +307,7 @@ For arrays with a single parameter, you may omit the surrounding brackets:
 
 ### Field attributes
 
-Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multuple lines:
+Field attributes are marked by an `@` prefix placed at the _end_ of the field definition. A field can have any number of field arguments, potentially spanning multiple lines:
 
 ```
 // A field with one attribute
@@ -378,10 +378,10 @@ Here is where you can find the documentation of connector attributes per data so
 
 Prisma core provides a set of functions that _must_ be implemented by every connector with a _best-effort implementation_. Functions only work inside field and block attributes that accept them:
 
-- `uuid()`:Generates a fresh UUID
-- `cuid()`:Generates a fresh cuid
+- `uuid()`: Generates a fresh UUID
+- `cuid()`: Generates a fresh cuid
 - `between(min, max)`: Generates a random int in the specified range
-- `now()`:Current date and time
+- `now()`: Current date and time
 
 Default values using a dynamic generator can be specified as follows:
 
