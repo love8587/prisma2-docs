@@ -14,16 +14,16 @@
 
 ## Data model definition
 
-The data model definition (short: data model or datamodel) is part of your [project file](./prisma-project-file.md).
+The data model definition (short: data model or datamodel) is part of your [schema file](./prisma-schema-file.md).
 
 It describes the shape of the data per data source. For example, when connecting to a _relational database_ as a data source, the data model definition is a declarative representation of the _database schema_ (tables, columns, indexes, ...). For a REST API, it describes the shapes of the _resources_ that can be retrieved and manipulated via the API.
 
 ## Example
 
-Here is an example based on a local SQLite database located in the same directory of the project file (called `data.db`):
+Here is an example based on a local SQLite database located in the same directory of the schema file (called `data.db`):
 
 ```groovy
-// project.prisma
+// schema.prisma
 
 datasource mysql {
   url      = "file:data.db"
@@ -74,7 +74,7 @@ enum Role {
 }
 ```
 
-While this file mostly consists of the data model definition, it is a valid [project file](./prisma-project-file.md) because it also specifies a data source connector (for SQLite, in this case).
+While this file mostly consists of the data model definition, it is a valid [schema file](./prisma-schema-file.md) because it also specifies a data source connector (for SQLite, in this case).
 
 ## Models
 
@@ -350,7 +350,7 @@ embed \_ { @@attribute0
 
 ### Core attributes
 
-_Core_ attributes must be implemented by every [data source](./prisma-project-file.md#data-sources) connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma project.
+_Core_ attributes must be implemented by every [data source](./prisma-schema-file.md#data-sources) connector (with a _best-effort implementation_), this means they will be available in _any_ Prisma setup.
 
 They may be used in `model` and `embed` blocks as well as on `type` definitions
 

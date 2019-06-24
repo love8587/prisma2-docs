@@ -22,7 +22,7 @@ Learn more about the `prisma2 init` flow [here](./getting-started.md).
 - [Getting started](./getting-started.md)
 - [Tutorial](./tutorial.md)
 - [Prisma ecosystem](./prisma-ecosystem.md)
-- [Prisma project file](./prisma-project-file.md)
+- [Prisma schema file](./prisma-schema-file.md)
 - [Data sources](./data-sources.md)
 - [Data modeling](./data-modeling.md)
 - [Relations](./relations.md)

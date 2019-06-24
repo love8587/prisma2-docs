@@ -20,7 +20,7 @@ A composite model is a model that doesn't directly map to a structure (e.g. a _t
 - [Data model definition](#data-model-definition)
 - [Nested write](#nested-write)
 - [Photon](#photon)
-- [Prisma project file](#prisma-project-file)
+- [Prisma schema file](#prisma-schema-file)
 - [Scalar type](#scalar-type)
 - [Selection set](#selection-set)
 - [Type modifier](#type-modifier)
@@ -51,9 +51,9 @@ Prisma currently supports the following built-in connectors:
 - [`mysql`](./core/connectors/mysql.md): A connector for MySQL databases
 - [`mongo`](./core/connectors/mongo.md): A connector for MongoDB databases (_coming soon_)
 
-### Prisma Definition Language (PDL)
+### Prisma Schema Language (PSL)
 
-PDL is the name of the syntax used to write a [project file](#prisma-project-file).
+PSL is the name of the syntax used to write a [schema file](#prisma-schema-file).
 
 > Learn more about PDL in the [spec](https://github.com/prisma/rfcs/blob/0002-datamodel-2/text/0002-datamodel.md).
 
@@ -71,7 +71,7 @@ Also sometimes referred to as:
 
 A generator determines what kind of code should be generated from the [data model](#data-model-definition). For example, you can specify the _Photon JS generator_ to generate Photon JS as a type-safe database client based on the data model.
 
-You can include various generators in your [project file](#prisma-project-file). When running `prisma2 generate`, the Prisma CLI reads the specified generators from the project definition and invokes each of them.
+You can include various generators in your [schema file](#prisma-schema-file). When running `prisma2 generate`, the Prisma CLI reads the specified generators from the Prisma schema and invokes each of them.
 
 ### Lift
 
@@ -103,7 +103,7 @@ Also sometimes referred to as:
 - Application schema
 - Model schema
 
-Contains the definitions of all your models. The [data model definition](./data-modeling.md#data-model-definition) is part of the [project file](#prisma-project-file).
+Contains the definitions of all your models. The [data model definition](./data-modeling.md#data-model-definition) is part of the [schema file](#prisma-schema-file).
 
 ### Nested write
 
@@ -111,7 +111,7 @@ Photon lets you perform nested creates, nested updates and nested connects for r
 
 ### Photon
 
-An auto-generated and type-safe database client. Photon is generated using a [generator](#generator) that's specified in your [project file](#prisma-project-file). The [generated Photon API](./photon/api.md) exposes powerful CRUD operations for you to programmatically access your database.
+An auto-generated and type-safe database client. Photon is generated using a [generator](#generator) that's specified in your [schema file](#prisma-schema-file). The [generated Photon API](./photon/api.md) exposes powerful CRUD operations for you to programmatically access your database.
 
 Prisma currently supports the following languages for Photon:
 
@@ -120,14 +120,16 @@ Prisma currently supports the following languages for Photon:
 
 A generator for Go is coming soon.
 
-### Prisma project file
+### Prisma schema file
 
 Also sometimes referred to as:
 
+- Schema file
 - Project file
 - Prisma file
+- Prisma schema
 
-The [Prisma project file](./prisma-project-file.md) specifies the main parts of your Prisma project:
+The [Prisma schema file](./prisma-schema-file.md) specifies the main parts of your Prisma setup:
 
 - [**Data sources**](#data-source): Specify the details of the data sources Prisma should connect to (e.g. a PostgreSQL database)
 - [**Data model definition**](#data-model-definition): Specifies the shape of the data per data source
