@@ -389,7 +389,7 @@ Default values using a dynamic generator can be specified as follows:
 model User {
   age        Int       @default(between([ 1, 5 ]))
   height     Float     @default(between([ 1, 5 ]))
-  createdAt  Datetime  @default(now())
+  createdAt  DateTime  @default(now())
 }
 ```
 
@@ -407,7 +407,7 @@ Prisma core provides the following scalar types:
 | `Boolean`  | True or false value   |
 | `Int`      | Integer value         |
 | `Float`    | Floating point number |
-| `Datetime` | Timestamp             |
+| `DateTime` | Timestamp             |
 
 The _data source connector_ determines what _native database type_ each of these types map to. Similarly, the _generator_ determines what _type in the target programming language_  each of these types map to.
 
@@ -424,7 +424,7 @@ Expand below to see the mappings per connector and generator.
 | `Boolean`  | `boolean`   | `BOOLEAN`   | _N/A_   | `bool`   | `boolean`  |
 | `Int`      | `integer`   | `INT`       | `INTEGER` | `int32`  | `number`   |
 | `Float`    | `real`      | `FLOAT`     | `REAL`    | `double` | `number`   |
-| `Datetime` | `timestamp` | `TIMESTAMP` | _N/A_   | `date`   | _N/A_    |
+| `DateTime` | `timestamp` | `TIMESTAMP` | _N/A_   | `date`   | _N/A_    |
 
 **_N/A_:** Means that there is no perfect equivalent, but we can probably get pretty
 close.
@@ -437,7 +437,7 @@ close.
 | `Boolean`  | `boolean` | `bool`      |
 | `Int`      | `number`  | `int`       |
 | `Float`    | `number`  | `float64`   |
-| `Datetime` | `Date`    | `time.Time` |
+| `DateTime` | `Date`    | `time.Time` |
 
 
 </Details>
