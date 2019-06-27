@@ -118,7 +118,7 @@ datasource pg {
 }
 
 datasource mysql {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("MYSQL_URL")
 }
 
